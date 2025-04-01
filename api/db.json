@@ -1,0 +1,13 @@
+{
+    "products": [
+        {  
+            "id": 1,
+            "name": "modelo",
+            "category": "tipo de producto",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        }
+    ]
+}
