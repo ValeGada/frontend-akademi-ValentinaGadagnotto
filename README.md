@@ -1,2 +1,2 @@
-# frontend-akademi-ValentinaGadag-otto
+# frontend-akademi-ValentinaGadagnotto
 Proyecto Entregable - Gestión de Productos Tecnológicos
