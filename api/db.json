@@ -2,12 +2,94 @@
     "products": [
         {  
             "id": 1,
-            "name": "modelo",
-            "category": "tipo de producto",
+            "name": "modelo 1",
+            "category": "celular",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        },
+        {  
+            "id": 2,
+            "name": "modelo 2",
+            "category": "monitor",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        },
+        {  
+            "id": 3,
+            "name": "modelo 3",
+            "category": "motherboard",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        },
+        {  
+            "id": 4,
+            "name": "modelo 4",
+            "category": "gabinete",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        },
+        {  
+            "id": 5,
+            "name": "modelo 5",
+            "category": "mouse",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        },
+        {  
+            "id": 6,
+            "name": "modelo 6",
+            "category": "teclado",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        },
+        {  
+            "id": 7,
+            "name": "modelo 7",
+            "category": "parlante",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        },
+        {  
+            "id": 8,
+            "name": "modelo 8",
+            "category": "memoria RAM",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        },
+        {  
+            "id": 9,
+            "name": "modelo 9",
+            "category": "fuente",
+            "price": 123,
+            "stock": 100,
+            "description": "especificaciones",
+            "image_url": "link"
+        },
+        {  
+            "id": 10,
+            "name": "modelo 10",
+            "category": "auriculares",
             "price": 123,
             "stock": 100,
             "description": "especificaciones",
             "image_url": "link"
         }
+
     ]
 }
