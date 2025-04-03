@@ -8,8 +8,8 @@ import {
 } from './types';
 
 // Action creators for each REST method
-export const addProduct = formValues => async dispatch => {
-    const response = await products.post('/products', formValues);
+export const addProduct = values => async dispatch => {
+    const response = await products.post('/products', values);
 
     dispatch ({ type: ADD_PRODUCT, payload: response.data });
 };
@@ -26,8 +26,8 @@ export const fetchProduct = id => async dispatch => {
     dispatch ({ type: FETCH_PRODUCT, payload: response.data });
 };
 
-export const editProduct = (id, formValues) => async dispatch => { 
-    const response = await products.put(`/products/${id}`, formValues);
+export const editProduct = (id, values) => async dispatch => { 
+    const response = await products.put(`/products/${id}`, values);
 
     dispatch ({ type: EDIT_PRODUCT, payload: response.data });
 };

@@ -146,7 +146,7 @@ const ProductsList = ({fetchProducts, products}) => {
                                     </Link>
                                 </td>
                                 <td>
-                                    <Link to={`/product/${product.id}`}>
+                                    <Link to={`/edit-product/${product.id}`}>
                                         <i className="ui pencil icon" />
                                     </Link>
                                 </td>

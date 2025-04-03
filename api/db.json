@@ -1,335 +1,365 @@
 {
-    "products": [
-        { 
-            "id": 1, 
-            "name": "Samsung Galaxy S24", 
-            "category": "smartphone", 
-            "price": 1000, 
-            "stock": 100, 
-            "description": "Tecnología Dynamic AMOLED 2X", 
-            "image_url": "https://multipoint.com.ar/Image/0/750_750-2_S24_CobaltViolet_Front.png" 
-        },
-        { 
-            "id": 2, 
-            "name": "iPhone 15 Pro", 
-            "category": "smartphone", 
-            "price": 1200, 
-            "stock": 50, 
-            "description": "Pantalla Super Retina XDR", 
-            "image_url": "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/65038654434d0-iPhone%2015%20Pro%20Natural%20titanium%20png.png" 
-        },
-        { 
-            "id": 3, 
-            "name": "Xiaomi Redmi Note 12", 
-            "category": "smartphone", 
-            "price": 350, 
-            "stock": 80, 
-            "description": "Cámara de 108MP, carga rápida", 
-            "image_url": "https://www.cordobadigital.net/wp-content/uploads/2023/11/note-12.png" 
-        },
-        { 
-            "id": 4, 
-            "name": "MacBook Air M2", 
-            "category": "notebook", 
-            "price": 1400, 
-            "stock": 30, 
-            "description": "Chip M2, batería de 18 horas", 
-            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN_D-6OLA5tpu0oiMENLGpmnPbN61Doa4Ndg&s"
-        },
-        { 
-            "id": 5, 
-            "name": "Dell XPS 13", 
-            "category": "notebook", 
-            "price": 1300, 
-            "stock": 25, 
-            "description": "Pantalla InfinityEdge, Intel Core i7", 
-            "image_url": "https://media.itechstore.com.np/f_webp/img/product/bd888e38-127c-431e-9dd7-fa47b23f6e78/notebook-xps-13-9340-t-sl-gallery-2.png"
-        },
-        { 
-            "id": 6, 
-            "name": "Lenovo ThinkPad X1", 
-            "category": "notebook", 
-            "price": 1250, 
-            "stock": 40, 
-            "description": "Diseño resistente, ideal para negocios", 
-            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Lenovo_ThinkPad_X1_Ultrabook_%28Nov_16%2C_2012%29.png/749px-Lenovo_ThinkPad_X1_Ultrabook_%28Nov_16%2C_2012%29.png?20210724193757" 
-        },
-        { 
-            "id": 7, 
-            "name": "Samsung Galaxy Tab S9", 
-            "category": "tablet", 
-            "price": 800, 
-            "stock": 60, 
-            "description": "Pantalla AMOLED de 120Hz", 
-            "image_url": "https://images.samsung.com/is/image/samsung/p6pim/ar/sm-x910nzadaro/gallery/ar-galaxy-tab-s9-ultra-wifi-x910-sm-x910nzadaro-537956585?$684_547_PNG$" },
-        { 
-            "id": 8, 
-            "name": "iPad Air 5", 
-            "category": "tablet", 
-            "price": 700, 
-            "stock": 45, 
-            "description": "Chip M1, pantalla Liquid Retina", 
-            "image_url": "https://d3ed33yzxpekl0.cloudfront.net/images/items/GPxZODhKyu0wk4Qlm5grJB579rGvJxViVPTxKMUR.png" 
-        },
-        { 
-            "id": 9, 
-            "name": "Xiaomi Pad 5", 
-            "category": "tablet", 
-            "price": 500, 
-            "stock": 75, 
-            "description": "Procesador Snapdragon 860", 
-            "image_url": "https://www.ventasrosario.com.ar/wp-content/uploads/2023/06/782484_half.png" 
-        },
-        { 
-            "id": 10, 
-            "name": "Sony WH-1000XM5", 
-            "category": "auriculares", 
-            "price": 350, 
-            "stock": 90, 
-            "description": "Cancelación de ruido líder", 
-            "image_url": "https://store.sony.co.nz/dw/image/v2/ABBC_PRD/on/demandware.static/-/Sites-sony-master-catalog/default/dw2e089ba5/images/WH1000XM5S/WH1000XM5S.png"
-        },
-        { 
-            "id": 11, 
-            "name": "AirPods Pro 2", 
-            "category": "auriculares", 
-            "price": 250, 
-            "stock": 70, 
-            "description": "Audio espacial y cancelación de ruido", 
-            "image_url": "https://png.pngtree.com/png-clipart/20230508/original/pngtree-airpods-png-image_9149137.png" 
-        },
-        { 
-            "id": 12, 
-            "name": "JBL Live 660NC", 
-            "category": "auriculares", 
-            "price": 180, 
-            "stock": 110, 
-            "description": "Sonido potente con ANC", 
-            "image_url": "https://www.jbl.com.sg/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw414699ef/JBL_LIVE_660NC_Product_Image_Hero_Blue.png?sw=537&sfrm=png" 
-        },
-        { 
-            "id": 13, 
-            "name": "Apple Watch Series 9", 
-            "category": "smartwatch", 
-            "price": 500, 
-            "stock": 40, 
-            "description": "Sensor de temperatura, pantalla siempre activa", 
-            "image_url": "https://i0.wp.com/shop.litecorp.com.ar/wp-content/uploads/2024/03/image-removebg-preview-2024-03-05T154939.527.png?fit=500%2C500&ssl=1" 
-        },
-        { 
-            "id": 14, 
-            "name": "Samsung Galaxy Watch 6", 
-            "category": "smartwatch", 
-            "price": 400, 
-            "stock": 50, 
-            "description": "Seguimiento de salud avanzado", 
-            "image_url": "https://images.samsung.com/is/image/samsung/p6pim/ar/2307/gallery/ar-galaxy-watch6-r935-sm-r930nzeaaro-537402293?$684_547_PNG$" 
-        },
-        { 
-            "id": 15, 
-            "name": "Garmin Fenix 7", 
-            "category": "smartwatch", 
-            "price": 650, 
-            "stock": 35, 
-            "description": "GPS de precisión, resistente", 
-            "image_url": "https://www.garmin.com.my/minisite/fenix/images/fenix7-device-7s.png" 
-        },
-        { 
-            "id": 16, 
-            "name": "Nvidia RTX 4090", 
-            "category": "componente", 
-            "price": 1800, 
-            "stock": 20, 
-            "description": "GPU de alto rendimiento para gaming", 
-            "image_url": "https://images.nvidia.com/aem-dam/Solutions/geforce/ada/news/rtx-40-series-graphics-cards-announcements/geforce-rtx-4090-product-photo-001.png" 
-        },
-        { 
-            "id": 17, 
-            "name": "AMD Ryzen 9 7950X", 
-            "category": "componente", 
-            "price": 750, 
-            "stock": 60, 
-            "description": "16 núcleos, ideal para gaming y creación", 
-            "image_url": "https://wiztech.com.ar/assets/images/products/procesador/amd_ryzen_9_7950x_a.png" 
-        },
-        { 
-            "id": 18, 
-            "name": "Intel Core i9-13900K", 
-            "category": "componente", 
-            "price": 650, 
-            "stock": 50, 
-            "description": "Velocidad extrema y eficiencia", 
-            "image_url": "https://wiztech.com.ar/assets/images/products/procesador/intel_core_i9_13900k_a.png" 
-        },
-        { 
-            "id": 19, 
-            "name": "PlayStation 5", 
-            "category": "consola", 
-            "price": 500, 
-            "stock": 80, 
-            "description": "SSD ultrarrápido, gráficos 4K", 
-            "image_url": "https://gmedia.playstation.com/is/image/SIEPDC/playstation-5-with-dualsense-front-product-shot-01-ps5-en-30jul20?$native--t$" },
-        { 
-            "id": 20, 
-            "name": "Xbox Series X", 
-            "category": "consola", 
-            "price": 500, 
-            "stock": 75, 
-            "description": "Rendimiento de última generación", 
-            "image_url": "https://static.wixstatic.com/media/bc698a_fa6fb51a796e465893c4224acc58d7df~mv2.png/v1/fill/w_480,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bc698a_fa6fb51a796e465893c4224acc58d7df~mv2.png" 
-        },
-        { 
-            "id": 21, 
-            "name": "Nintendo Switch OLED", 
-            "category": "consola", 
-            "price": 350, 
-            "stock": 60, 
-            "description": "Pantalla OLED, modo portátil", 
-            "image_url": "https://assets.nintendo.eu/image/upload/f_auto,q_auto/NAL/Consoles%20and%20Products/Nintendo%20Switch%20OLED/ci_nswitch_oled_vivid_colors.png" 
-        },
-        { 
-            "id": 22, 
-            "name": "Razer BlackWidow V4", 
-            "category": "teclado", 
-            "price": 180, 
-            "stock": 90, 
-            "description": "Teclado mecánico gaming", 
-            "image_url": "https://dl.razerzone.com/src2/13219/13219-1-en-v1.png" 
-        },
-        { 
-            "id": 23, 
-            "name": "Logitech MX Master 3", 
-            "category": "mouse", 
-            "price": 100, 
-            "stock": 120, 
-            "description": "Ratón ergonómico para productividad", 
-            "image_url": "https://www.jouleperformance.com/media/catalog/product/9/1/910-006582-l1118772.png?optimize=medium&fit=bounds&height=450&width=600&canvas=600:450" 
-        },
-        { 
-            "id": 24, 
-            "name": "Corsair Vengeance 32GB RAM", 
-            "category": "componente", 
-            "price": 140, 
-            "stock": 80, 
-            "description": "Memoria RAM DDR5 6000MHz",
-            "image_url": "https://assets.corsair.com/image/upload/f_auto,q_auto/v1/akamai/pdp/vengeance-rgb-pro/Content/Vengeance_RGB_Pro_PDP_Black_04.png" 
-        },
-        { 
-            "id": 25, 
-            "name": "Asus ROG Strix X670E", 
-            "category": "componente", 
-            "price": 450, 
-            "stock": 30, 
-            "description": "Placa madre para Ryzen", 
-            "image_url": "https://dlcdnwebimgs.asus.com/files/media/B51D103D-2941-412E-8479-AF994957093B/v1/img/kv/ROG-Strix-X670E-E-Gaming.png" 
-        },
-        { 
-            "id": 26, 
-            "name": "GoPro Hero 11 Black", 
-            "category": "cámara", 
-            "price": 500, 
-            "stock": 45, 
-            "description": "Cámara de acción 5.3K", 
-            "image_url": "https://gopro.com.ar/wp-content/uploads/2022/09/gp-hero-11-manual.png" 
-        },
-        { 
-            "id": 27, 
-            "name": "Sony Alpha A7 IV", 
-            "category": "cámara", 
-            "price": 2500, 
-            "stock": 20, 
-            "description": "Cámara mirrorless full-frame", 
-            "image_url": "https://res-5.cloudinary.com/grover/image/upload/e_trim/c_limit,f_auto,fl_png8.lossy,h_500,q_auto,w_500/v1662653019/on97dacbxtg7te9vzbhx.png" 
-        },
-        { 
-            "id": 28, 
-            "name": "Canon EOS R6", 
-            "category": "cámara", 
-            "price": 2200, 
-            "stock": 25, 
-            "description": "Cámara mirrorless profesional", 
-            "image_url": "https://static.vecteezy.com/system/resources/previews/055/062/220/non_2x/canon-eos-r6-digital-camera-on-transparent-background-free-png.png" 
-        },
-        { 
-            "id": 29, 
-            "name": "Bose SoundLink Revolve+", 
-            "category": "parlante", 
-            "price": 250, 
-            "stock": 60, 
-            "description": "Altavoz Bluetooth portátil", 
-            "image_url": "https://assets.bosecreative.com/transform/57c7c873-851a-4a36-adde-c5fefbc38e43/SLRPII_CC_023_RGB?io=width:816,height:667,transform:fit&io=width:816,height:667,transform:fit" 
-        },
-        { 
-            "id": 30, 
-            "name": "JBL Charge 5", 
-            "category": "parlante", 
-            "price": 180, 
-            "stock": 80, 
-            "description": "Batería de larga duración, sonido potente", 
-            "image_url": "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw00f57470/JBL_CHARGE5_HERO_BLACK_0046_x1.png?sw=400&sh=400&sm=fit&sfrm=png" 
-        },
-        { 
-            "id": 31, 
-            "name": "Echo Dot (5ta Gen)", 
-            "category": "smart home", 
-            "price": 50, 
-            "stock": 100, 
-            "description": "Asistente de voz Alexa", 
-            "image_url": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1730269958/Croma%20Assets/Entertainment/Speakers%20and%20Media%20Players/Images/269863_0_njxhdz.png" 
-        },
-        { 
-            "id": 32, 
-            "name": "Google Nest Hub", 
-            "category": "smart home", 
-            "price": 90, 
-            "stock": 70, 
-            "description": "Pantalla inteligente con Google Assistant", 
-            "image_url": "https://lh3.googleusercontent.com/xcLxXAoAxrIyicg6JDaZS-zGGKpXeYfUgBU7q90nw048r3gIOtfTh6-nnU7SgZSThDpU5Y6vTCXpoPJ5TylfhpGsRwDucba2xjGz" 
-        },
-        { 
-            "id": 33, 
-            "name": "Philips Hue Starter Kit", 
-            "category": "smart home", 
-            "price": 120, 
-            "stock": 40, 
-            "description": "Luces inteligentes multicolor", 
-            "image_url": "https://cdn11.bigcommerce.com/s-dfnvu55jjs/images/stencil/1280x1280/products/185/586/blob__21735.1702863896.png?c=1" 
-        },
-        { 
-            "id": 34, 
-            "name": "Ring Video Doorbell 4", 
-            "category": "smart home", 
-            "price": 200, 
-            "stock": 50, 
-            "description": "Timbre inteligente con video", 
-            "image_url": "https://images.ctfassets.net/a3peezndovsu/7vSs4MnP2yyf1RKZVqV3nQ/3325fbded848014eb4ab66fad7365342/ring_global_nav_battery_doorbell_146x146_2x.png" 
-        },
-        { 
-            "id": 35, 
-            "name": "Roku Streaming Stick 4K", 
-            "category": "streaming", 
-            "price": 70, 
-            "stock": 90, 
-            "description": "Streaming en 4K HDR", 
-            "image_url": "https://images.contentstack.io/v3/assets/blt50354f32a8eecd28/bltf67ce9398cd8afcc/66c38b4c4f0e47f2055a7eaf/streambar_se_carousel_07.png?branch=production" 
-        },
-        { 
-            "id": 36, 
-            "name": "Apple TV 4K", 
-            "category": "streaming", 
-            "price": 180, 
-            "stock": 60, 
-            "description": "Streaming de alta calidad", 
-            "image_url": "https://arrichetta.com.ar/wp-content/uploads/2024/08/111922_sp845-apple-tv-4k-2gen.png" 
-        },
-        { 
-            "id": 37, 
-            "name": "Chromecast con Google TV", 
-            "category": "streaming", 
-            "price": 50, 
-            "stock": 100, 
-            "description": "Convierte tu TV en Smart TV", 
-            "image_url": "https://storage.googleapis.com/guvery-cdn/public_images/items/261.png" 
-        }
-    ]
+  "products": [
+    {
+      "id": "1",
+      "name": "Samsung Galaxy S24",
+      "category": "smartphone",
+      "price": 1000,
+      "stock": 100,
+      "description": "Tecnología Dynamic AMOLED 2X",
+      "image_url": "https://multipoint.com.ar/Image/0/750_750-2_S24_CobaltViolet_Front.png"
+    },
+    {
+      "id": "2",
+      "name": "iPhone 15 Pro",
+      "category": "Smartphone",
+      "price": 1200,
+      "stock": 50,
+      "description": "Pantalla Super Retina XDR",
+      "image_url": "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/65038654434d0-iPhone%2015%20Pro%20Natural%20titanium%20png.png"
+    },
+    {
+      "id": "3",
+      "name": "Xiaomi Redmi Note 12",
+      "category": "smartphone",
+      "price": 350,
+      "stock": 80,
+      "description": "Cámara de 108MP, carga rápida",
+      "image_url": "https://www.cordobadigital.net/wp-content/uploads/2023/11/note-12.png"
+    },
+    {
+      "id": "4",
+      "name": "MacBook Air M2",
+      "category": "notebook",
+      "price": 1400,
+      "stock": 30,
+      "description": "Chip M2, batería de 18 horas",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN_D-6OLA5tpu0oiMENLGpmnPbN61Doa4Ndg&s"
+    },
+    {
+      "id": "5",
+      "name": "Dell XPS 13",
+      "category": "notebook",
+      "price": 1300,
+      "stock": 25,
+      "description": "Pantalla InfinityEdge, Intel Core i7",
+      "image_url": "https://media.itechstore.com.np/f_webp/img/product/bd888e38-127c-431e-9dd7-fa47b23f6e78/notebook-xps-13-9340-t-sl-gallery-2.png"
+    },
+    {
+      "id": "6",
+      "name": "Lenovo ThinkPad X1",
+      "category": "notebook",
+      "price": 1250,
+      "stock": 40,
+      "description": "Diseño resistente, ideal para negocios",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Lenovo_ThinkPad_X1_Ultrabook_%28Nov_16%2C_2012%29.png/749px-Lenovo_ThinkPad_X1_Ultrabook_%28Nov_16%2C_2012%29.png?20210724193757"
+    },
+    {
+      "id": "7",
+      "name": "Samsung Galaxy Tab S9",
+      "category": "tablet",
+      "price": 800,
+      "stock": 60,
+      "description": "Pantalla AMOLED de 120Hz",
+      "image_url": "https://images.samsung.com/is/image/samsung/p6pim/ar/sm-x910nzadaro/gallery/ar-galaxy-tab-s9-ultra-wifi-x910-sm-x910nzadaro-537956585?$684_547_PNG$"
+    },
+    {
+      "id": "8",
+      "name": "iPad Air 5",
+      "category": "tablet",
+      "price": 700,
+      "stock": 45,
+      "description": "Chip M1, pantalla Liquid Retina",
+      "image_url": "https://d3ed33yzxpekl0.cloudfront.net/images/items/GPxZODhKyu0wk4Qlm5grJB579rGvJxViVPTxKMUR.png"
+    },
+    {
+      "id": "9",
+      "name": "Xiaomi Pad 5",
+      "category": "tablet",
+      "price": 500,
+      "stock": 75,
+      "description": "Procesador Snapdragon 860",
+      "image_url": "https://www.ventasrosario.com.ar/wp-content/uploads/2023/06/782484_half.png"
+    },
+    {
+      "id": "10",
+      "name": "Sony WH-1000XM5",
+      "category": "auriculares",
+      "price": 350,
+      "stock": 90,
+      "description": "Cancelación de ruido líder",
+      "image_url": "https://store.sony.co.nz/dw/image/v2/ABBC_PRD/on/demandware.static/-/Sites-sony-master-catalog/default/dw2e089ba5/images/WH1000XM5S/WH1000XM5S.png"
+    },
+    {
+      "id": "11",
+      "name": "AirPods Pro 2",
+      "category": "auriculares",
+      "price": 250,
+      "stock": 70,
+      "description": "Audio espacial y cancelación de ruido",
+      "image_url": "https://png.pngtree.com/png-clipart/20230508/original/pngtree-airpods-png-image_9149137.png"
+    },
+    {
+      "id": "12",
+      "name": "JBL Live 660NC",
+      "category": "auriculares",
+      "price": 180,
+      "stock": 110,
+      "description": "Sonido potente con ANC",
+      "image_url": "https://www.jbl.com.sg/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw414699ef/JBL_LIVE_660NC_Product_Image_Hero_Blue.png?sw=537&sfrm=png"
+    },
+    {
+      "id": "13",
+      "name": "Apple Watch Series 9",
+      "category": "smartwatch",
+      "price": 500,
+      "stock": 40,
+      "description": "Sensor de temperatura, pantalla siempre activa",
+      "image_url": "https://i0.wp.com/shop.litecorp.com.ar/wp-content/uploads/2024/03/image-removebg-preview-2024-03-05T154939.527.png?fit=500%2C500&ssl=1"
+    },
+    {
+      "id": "14",
+      "name": "Samsung Galaxy Watch 6",
+      "category": "smartwatch",
+      "price": 400,
+      "stock": 50,
+      "description": "Seguimiento de salud avanzado",
+      "image_url": "https://images.samsung.com/is/image/samsung/p6pim/ar/2307/gallery/ar-galaxy-watch6-r935-sm-r930nzeaaro-537402293?$684_547_PNG$"
+    },
+    {
+      "id": "15",
+      "name": "Garmin Fenix 7",
+      "category": "smartwatch",
+      "price": 650,
+      "stock": 35,
+      "description": "GPS de precisión, resistente",
+      "image_url": "https://www.garmin.com.my/minisite/fenix/images/fenix7-device-7s.png"
+    },
+    {
+      "id": "16",
+      "name": "Nvidia RTX 4090",
+      "category": "componente",
+      "price": 1800,
+      "stock": 20,
+      "description": "GPU de alto rendimiento para gaming",
+      "image_url": "https://images.nvidia.com/aem-dam/Solutions/geforce/ada/news/rtx-40-series-graphics-cards-announcements/geforce-rtx-4090-product-photo-001.png"
+    },
+    {
+      "id": "17",
+      "name": "AMD Ryzen 9 7950X",
+      "category": "componente",
+      "price": 750,
+      "stock": 60,
+      "description": "16 núcleos, ideal para gaming y creación",
+      "image_url": "https://wiztech.com.ar/assets/images/products/procesador/amd_ryzen_9_7950x_a.png"
+    },
+    {
+      "id": "18",
+      "name": "Intel Core i9-13900K",
+      "category": "componente",
+      "price": 650,
+      "stock": 50,
+      "description": "Velocidad extrema y eficiencia",
+      "image_url": "https://wiztech.com.ar/assets/images/products/procesador/intel_core_i9_13900k_a.png"
+    },
+    {
+      "id": "19",
+      "name": "PlayStation 5",
+      "category": "consola",
+      "price": 500,
+      "stock": 80,
+      "description": "SSD ultrarrápido, gráficos 4K",
+      "image_url": "https://gmedia.playstation.com/is/image/SIEPDC/playstation-5-with-dualsense-front-product-shot-01-ps5-en-30jul20?$native--t$"
+    },
+    {
+      "id": "20",
+      "name": "Xbox Series X",
+      "category": "consola",
+      "price": 500,
+      "stock": 75,
+      "description": "Rendimiento de última generación",
+      "image_url": "https://static.wixstatic.com/media/bc698a_fa6fb51a796e465893c4224acc58d7df~mv2.png/v1/fill/w_480,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bc698a_fa6fb51a796e465893c4224acc58d7df~mv2.png"
+    },
+    {
+      "id": "21",
+      "name": "Nintendo Switch OLED",
+      "category": "consola",
+      "price": 350,
+      "stock": 60,
+      "description": "Pantalla OLED, modo portátil",
+      "image_url": "https://assets.nintendo.eu/image/upload/f_auto,q_auto/NAL/Consoles%20and%20Products/Nintendo%20Switch%20OLED/ci_nswitch_oled_vivid_colors.png"
+    },
+    {
+      "id": "22",
+      "name": "Razer BlackWidow V4",
+      "category": "teclado",
+      "price": 180,
+      "stock": 90,
+      "description": "Teclado mecánico gaming",
+      "image_url": "https://dl.razerzone.com/src2/13219/13219-1-en-v1.png"
+    },
+    {
+      "id": "23",
+      "name": "Logitech MX Master 3",
+      "category": "mouse",
+      "price": 100,
+      "stock": 120,
+      "description": "Ratón ergonómico para productividad",
+      "image_url": "https://www.jouleperformance.com/media/catalog/product/9/1/910-006582-l1118772.png?optimize=medium&fit=bounds&height=450&width=600&canvas=600:450"
+    },
+    {
+      "id": "24",
+      "name": "Corsair Vengeance 32GB RAM",
+      "category": "componente",
+      "price": 140,
+      "stock": 80,
+      "description": "Memoria RAM DDR5 6000MHz",
+      "image_url": "https://assets.corsair.com/image/upload/f_auto,q_auto/v1/akamai/pdp/vengeance-rgb-pro/Content/Vengeance_RGB_Pro_PDP_Black_04.png"
+    },
+    {
+      "id": "25",
+      "name": "Asus ROG Strix X670E",
+      "category": "componente",
+      "price": 450,
+      "stock": 30,
+      "description": "Placa madre para Ryzen",
+      "image_url": "https://dlcdnwebimgs.asus.com/files/media/B51D103D-2941-412E-8479-AF994957093B/v1/img/kv/ROG-Strix-X670E-E-Gaming.png"
+    },
+    {
+      "id": "26",
+      "name": "GoPro Hero 11 Black",
+      "category": "cámara",
+      "price": 500,
+      "stock": 45,
+      "description": "Cámara de acción 5.3K",
+      "image_url": "https://gopro.com.ar/wp-content/uploads/2022/09/gp-hero-11-manual.png"
+    },
+    {
+      "id": "27",
+      "name": "Sony Alpha A7 IV",
+      "category": "cámara",
+      "price": 2500,
+      "stock": 20,
+      "description": "Cámara mirrorless full-frame",
+      "image_url": "https://res-5.cloudinary.com/grover/image/upload/e_trim/c_limit,f_auto,fl_png8.lossy,h_500,q_auto,w_500/v1662653019/on97dacbxtg7te9vzbhx.png"
+    },
+    {
+      "id": "28",
+      "name": "Canon EOS R6",
+      "category": "cámara",
+      "price": 2200,
+      "stock": 25,
+      "description": "Cámara mirrorless profesional",
+      "image_url": "https://static.vecteezy.com/system/resources/previews/055/062/220/non_2x/canon-eos-r6-digital-camera-on-transparent-background-free-png.png"
+    },
+    {
+      "id": "29",
+      "name": "Bose SoundLink Revolve+",
+      "category": "parlante",
+      "price": 250,
+      "stock": 60,
+      "description": "Altavoz Bluetooth portátil",
+      "image_url": "https://assets.bosecreative.com/transform/57c7c873-851a-4a36-adde-c5fefbc38e43/SLRPII_CC_023_RGB?io=width:816,height:667,transform:fit&io=width:816,height:667,transform:fit"
+    },
+    {
+      "id": "30",
+      "name": "JBL Charge 5",
+      "category": "parlante",
+      "price": 180,
+      "stock": 80,
+      "description": "Batería de larga duración, sonido potente",
+      "image_url": "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw00f57470/JBL_CHARGE5_HERO_BLACK_0046_x1.png?sw=400&sh=400&sm=fit&sfrm=png"
+    },
+    {
+      "id": "31",
+      "name": "Echo Dot (5ta Gen)",
+      "category": "smart home",
+      "price": 50,
+      "stock": 100,
+      "description": "Asistente de voz Alexa",
+      "image_url": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1730269958/Croma%20Assets/Entertainment/Speakers%20and%20Media%20Players/Images/269863_0_njxhdz.png"
+    },
+    {
+      "id": "32",
+      "name": "Google Nest Hub",
+      "category": "smart home",
+      "price": 90,
+      "stock": 70,
+      "description": "Pantalla inteligente con Google Assistant",
+      "image_url": "https://lh3.googleusercontent.com/xcLxXAoAxrIyicg6JDaZS-zGGKpXeYfUgBU7q90nw048r3gIOtfTh6-nnU7SgZSThDpU5Y6vTCXpoPJ5TylfhpGsRwDucba2xjGz"
+    },
+    {
+      "id": "33",
+      "name": "Philips Hue Starter Kit",
+      "category": "smart home",
+      "price": 120,
+      "stock": 40,
+      "description": "Luces inteligentes multicolor",
+      "image_url": "https://cdn11.bigcommerce.com/s-dfnvu55jjs/images/stencil/1280x1280/products/185/586/blob__21735.1702863896.png?c=1"
+    },
+    {
+      "id": "34",
+      "name": "Ring Video Doorbell 4",
+      "category": "smart home",
+      "price": 200,
+      "stock": 50,
+      "description": "Timbre inteligente con video",
+      "image_url": "https://images.ctfassets.net/a3peezndovsu/7vSs4MnP2yyf1RKZVqV3nQ/3325fbded848014eb4ab66fad7365342/ring_global_nav_battery_doorbell_146x146_2x.png"
+    },
+    {
+      "id": "35",
+      "name": "Roku Streaming Stick 4K",
+      "category": "streaming",
+      "price": 70,
+      "stock": 90,
+      "description": "Streaming en 4K HDR",
+      "image_url": "https://images.contentstack.io/v3/assets/blt50354f32a8eecd28/bltf67ce9398cd8afcc/66c38b4c4f0e47f2055a7eaf/streambar_se_carousel_07.png?branch=production"
+    },
+    {
+      "id": "36",
+      "name": "Apple TV 4K",
+      "category": "streaming",
+      "price": 180,
+      "stock": 60,
+      "description": "Streaming de alta calidad",
+      "image_url": "https://arrichetta.com.ar/wp-content/uploads/2024/08/111922_sp845-apple-tv-4k-2gen.png"
+    },
+    {
+      "id": "37",
+      "name": "Chromecast con Google TV",
+      "category": "streaming",
+      "price": 50,
+      "stock": 100,
+      "description": "Convierte tu TV en Smart TV",
+      "image_url": "https://storage.googleapis.com/guvery-cdn/public_images/items/261.png"
+    },
+    {
+      "id": "5077",
+      "name": "unaCosa",
+      "price": "456",
+      "stock": "456",
+      "category": "celular"
+    },
+    {
+      "id": "8ca7",
+      "name": "caramelo",
+      "price": "34123",
+      "stock": "342",
+      "category": "smartphone"
+    },
+    {
+      "id": "72aa",
+      "name": "monitor dsfas",
+      "price": "4565",
+      "stock": "456456",
+      "category": "Streaming"
+    },
+    {
+      "id": "b01a",
+      "name": "dsads",
+      "price": "345",
+      "stock": "423",
+      "category": "Smartphone"
+    }
+  ]
 }
