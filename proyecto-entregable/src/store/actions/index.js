@@ -1,4 +1,4 @@
-import products from '../apis/products';
+import products from '../../apis/products';
 import { 
     ADD_PRODUCT, 
     FETCH_PRODUCTS, 
@@ -21,19 +21,19 @@ export const fetchProducts = () => async dispatch => {
 };
 
 export const fetchProduct = id => async dispatch => { 
-    const response = await products.get(`/product/${id}`);
+    const response = await products.get(`/products/${id}`);
 
     dispatch ({ type: FETCH_PRODUCT, payload: response.data });
 };
 
 export const editProduct = (id, formValues) => async dispatch => { 
-    const response = await products.put(`/product/${id}`, formValues);
+    const response = await products.put(`/products/${id}`, formValues);
 
     dispatch ({ type: EDIT_PRODUCT, payload: response.data });
 };
 
 export const deleteProduct = id => async dispatch => { 
-    await products.delete(`/product/${id}`);
+    await products.delete(`/products/${id}`);
 
     dispatch ({ type: DELETE_PRODUCT, payload: id });
 };
