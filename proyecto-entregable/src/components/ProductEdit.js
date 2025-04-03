@@ -20,7 +20,7 @@ const ProductEdit = ({ products, fetchProduct, editProduct }) => {
   const handleEditProduct = (updatedProduct) => {
     const productId = product.id;
     editProduct(productId, updatedProduct); // Envía los datos a Redux y JSON Server
-    alert('Producto actualizado correctamente');
+    alert('Producto actualizado correctamente'); // Pasar a modal
     navigate('/'); // Redirige a la página principal
   };
 

@@ -151,7 +151,7 @@ const ProductsList = ({fetchProducts, products}) => {
                                     </Link>
                                 </td>
                                 <td>
-                                    <Link to={"/delete-product"}>
+                                    <Link to={`/delete-product/${product.id}`}>
                                         <i className="ui trash icon" />
                                     </Link>
                                 </td>

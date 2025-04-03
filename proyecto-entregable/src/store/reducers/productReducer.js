@@ -17,11 +17,9 @@ export default (state = initialState, action) => {
         case ADD_PRODUCT:
             return [...state, action.payload];
         case EDIT_PRODUCT:
-            return state.map(p =>
-                    p.id === action.payload.id ? action.payload : p
-                );
+            return state.map(p => p.id === action.payload.id ? action.payload : p);
         case DELETE_PRODUCT:
-            return state.filter(product => product.id !== action.payload);
+            return state.filter(p => p.id !== action.payload);
         default:
             return state;
     }

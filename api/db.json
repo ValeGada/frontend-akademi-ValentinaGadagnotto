@@ -21,7 +21,7 @@
     {
       "id": "3",
       "name": "Xiaomi Redmi Note 12",
-      "category": "smartphone",
+      "category": "Tablet",
       "price": 350,
       "stock": 80,
       "description": "Cámara de 108MP, carga rápida",
@@ -339,27 +339,6 @@
       "price": "456",
       "stock": "456",
       "category": "celular"
-    },
-    {
-      "id": "8ca7",
-      "name": "caramelo",
-      "price": "34123",
-      "stock": "342",
-      "category": "smartphone"
-    },
-    {
-      "id": "72aa",
-      "name": "monitor dsfas",
-      "price": "4565",
-      "stock": "456456",
-      "category": "Streaming"
-    },
-    {
-      "id": "b01a",
-      "name": "dsads",
-      "price": "345",
-      "stock": "423",
-      "category": "Smartphone"
     }
   ]
 }

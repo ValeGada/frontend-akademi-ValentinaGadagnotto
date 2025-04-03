@@ -9,11 +9,10 @@ const ProductDetail = ({ products, fetchProduct }) => {
     const navigate = useNavigate();
     const product = products.find(p=>p.id === id);
     
-    // Cargar el producto al montar el componente
     useEffect(() => {
         if (!product) {
             fetchProduct(id);
-          }
+        }
     }, [product])
 
     if (!product) return <p>Cargando...</p>;

@@ -3,8 +3,8 @@ import NavBar from "./NavBar";
 import ProductsList from "./ProductsList";
 import ProductDetail from './ProductDetail';
 import AddProduct from './AddProduct';
-import DeleteModal from './DeleteModal';
 import ProductEdit from './ProductEdit';
+import ProductDelete from './ProductDelete';
 
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/edit-product/:id" element={<ProductEdit />} />
             <Route path="/add-product" element={<AddProduct />} />
-            <Route path="/delete-product" element={<DeleteModal />} />
+            <Route path="/delete-product/:id" element={<ProductDelete />} />
           </Routes>
       </BrowserRouter>
     </div>
