@@ -10,6 +10,7 @@ const Add = styled.div`
     padding-top: 70px;
     height: 110vh;
     margin: 1.5em 5em;
+    justify-items: center;
 `
 
 const AddProduct = ({ addProduct }) => {

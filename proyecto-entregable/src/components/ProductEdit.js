@@ -9,7 +9,8 @@ const Edit = styled.div`
     top: 0;
     padding-top: 70px;
     height: 110vh;
-    margin: 1.5em 5em;
+    margin: 1.5em 5em;    
+    justify-items: center;
 `
 
 const ProductEdit = ({ products, fetchProduct, editProduct }) => {
@@ -41,7 +42,7 @@ const ProductEdit = ({ products, fetchProduct, editProduct }) => {
         product={product}
         onSubmit={handleEditProduct}
         isEditable={true}
-        onCancel={() => navigate('/')}
+        onCancel={() => navigate(`/product/${product.id}`)}
       />
     </Edit>
   );

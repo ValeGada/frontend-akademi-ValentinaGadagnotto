@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledForm = styled.form`
     height: 17vh;
-    margin: 1.5em 5em;
+    margin: 1.5em;
     justify-self: center;
 `
 
@@ -27,8 +27,9 @@ const StyledSelect = styled.select`
 `
 
 const FormButton = styled.button`
+    justify-self: center;
     padding: 3px 10px;
-    margin-left: 5px;
+    margin: 1em;
     cursor: pointer;
     background: #e0e1e2;
     color: #555555;
@@ -127,7 +128,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
             type="text"
             name="description"
             min={5}
-            value={formData.name || ''}
+            value={formData.description || ''}
             onChange={handleChange}
             readOnly={!isEditable}
           />

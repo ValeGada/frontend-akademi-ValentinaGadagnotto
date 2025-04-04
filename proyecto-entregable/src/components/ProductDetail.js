@@ -9,10 +9,11 @@ const Detail = styled.div`
     top: 0;
     padding-top: 70px;
     height: 110vh;
-    margin: 1.5em 5em;
+    margin: 1.5em;
+    justify-items: center;
 `
-const EditButton = styled.button`
-    margin: 12.5em 35.5em;
+const DetailButton = styled.button`
+    margin: 13.6em 1.85em;
     justify-self: center;
     padding: 3px 10px;
     cursor: pointer;
@@ -50,7 +51,8 @@ const ProductDetail = ({ products, fetchProduct }) => {
             product={product}
             isEditable={false}
         />
-        <EditButton onClick={() => navigate(`/edit-product/${id}`)}>Editar</EditButton>
+        <DetailButton onClick={() => navigate(`/edit-product/${id}`)}>Editar</DetailButton>
+        <DetailButton onClick={() => navigate('/')}>Cancelar</DetailButton>
       </Detail>
     );
 };

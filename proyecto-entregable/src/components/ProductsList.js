@@ -12,11 +12,63 @@ const ListDiv = styled.div`
     margin: 1.5em 5em;
 `
 
-const NumbersSpan = styled.span`
-    text-decoration: underline;
-    cursor: pointer;
-    padding: 0 10px;
+const FilterSelect = styled.select`
+    border-radius: 3px;
+    border: 1px solid #f1f1f1;
+    border: none;
+    color: #000000;
+    padding: 5px 12px;
+    margin-left: 1em;
+    margin-right: 3em;
 `
+
+const OrderButton = styled.button`
+    padding: 3px 10px;
+    margin-left: 1em;
+    cursor: pointer;
+    background: #e0e1e2;
+    color: #555555;
+    transition: all .3s ease;
+    border: 3px solid #e0e1e2;
+    border-radius: 5px;
+
+    &:hover{
+    text-decoration: none;
+    color: #f1f1f1;
+    background: #555555;
+    border: 3px solid #555555;
+    }
+`
+
+const SearchInput = styled.input`
+    margin-left: 3em;
+    margin-right: 5em;
+    border-radius: 3px;
+    border: 1px solid #f1f1f1;
+    border: none;
+    color: #000000;
+    padding: 5px 12px;
+`
+
+const NumbersSpan = styled.span`
+    cursor: pointer;
+    padding: 0 5px;
+    color: #000000;
+    transition: all .3s ease;
+
+    &:hover{
+    text-decoration: none;
+    color: #4183c4;
+    }
+`
+const PagingPadding = styled.div`
+    padding: 5px 12px;
+`
+
+const StyledTable = styled.table`
+    justify-content: center;
+`
+
 const PageButton = styled.button`
     padding: 5px 12px;
     margin: 2px;
@@ -35,23 +87,7 @@ const PageButton = styled.button`
     }
 `
 
-const OrderButton = styled.button`
-    padding: 3px 10px;
-    margin-left: 5px;
-    cursor: pointer;
-    background: #e0e1e2;
-    color: #555555;
-    transition: all .3s ease;
-    border: 3px solid #e0e1e2;
-    border-radius: 5px;
 
-    &:hover{
-    text-decoration: none;
-    color: #f1f1f1;
-    background: #555555;
-    border: 3px solid #555555;
-    }
-`
 
 const ProductsList = ({fetchProducts, products}) => {
     // Filtros / Orden
@@ -118,7 +154,7 @@ const ProductsList = ({fetchProducts, products}) => {
             <div className="ui secondary pointing menu">
                 <div className='item'>
                     Filtrar por categoría:
-                    <select onChange={e => setCategory(e.target.value)}>
+                    <FilterSelect onChange={e => setCategory(e.target.value)}>
                         <option value=''></option>
                         <option value='Smartphone'>Smartphone</option>
                         <option value='Tablet'>Tablet</option>
@@ -134,7 +170,7 @@ const ProductsList = ({fetchProducts, products}) => {
                         <option value='Streaming'>Streaming</option>
                         <option value='Smart Home'>Smart Home</option>
                         <option value='Cámara'>Cámara</option>
-                    </select>
+                    </FilterSelect>
                 </div>
                 <div className='item'>
                     Ordenar por:
@@ -150,7 +186,7 @@ const ProductsList = ({fetchProducts, products}) => {
                     </OrderButton>
                 </div>
                 <div className='item'>
-                    <input 
+                    <SearchInput 
                         type='text' 
                         placeholder='Buscar producto'
                         value={searchTerm}
@@ -159,12 +195,14 @@ const ProductsList = ({fetchProducts, products}) => {
                     />
                 </div>
                 <div className='item'>
+                <PagingPadding>
                     Productos por página: 
                     <NumbersSpan onClick={()=>setProductsPerPage(5)}>5</NumbersSpan> - 
                     <NumbersSpan onClick={()=>setProductsPerPage(10)}>10</NumbersSpan>
-                </div>                            
+                </PagingPadding>  
+                </div>                          
             </div>
-            <table className="ui table medium">
+            <StyledTable className="ui table medium">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -213,7 +251,7 @@ const ProductsList = ({fetchProducts, products}) => {
                         </tr>
                     )}
                 </tbody>
-            </table>
+            </StyledTable>
             {/* Paginación */}
             <div>
                 {Array.from({ length: totalPages }, (_, i) => (
