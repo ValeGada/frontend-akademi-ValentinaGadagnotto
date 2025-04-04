@@ -169,6 +169,7 @@ const ProductsList = ({fetchProducts, products}) => {
                     <tr>
                         <th>Nombre</th>
                         <th>Categoría</th>
+                        <th>Descripción</th>
                         <th>Precio</th>
                         <th>Stock disponible</th>
                         <th>Ver</th>
@@ -186,6 +187,7 @@ const ProductsList = ({fetchProducts, products}) => {
                                     </Link>
                                 </td>
                                 <td>{product.category}</td>
+                                <td>{product.description}</td>
                                 <td>${product.price}</td>
                                 <td>{product.stock}</td>
                                 <td>

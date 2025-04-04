@@ -12,8 +12,9 @@ const Detail = styled.div`
     margin: 1.5em 5em;
 `
 const EditButton = styled.button`
+    margin: 12.5em 35.5em;
+    justify-self: center;
     padding: 3px 10px;
-    margin-left: 5px;
     cursor: pointer;
     background: #e0e1e2;
     color: #555555;
@@ -45,7 +46,7 @@ const ProductDetail = ({ products, fetchProduct }) => {
     return (
       <Detail>
         <h2>Detalle del Producto</h2>
-        <ProductForm 
+        <ProductForm
             product={product}
             isEditable={false}
         />
