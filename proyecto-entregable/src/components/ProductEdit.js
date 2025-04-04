@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchProduct, editProduct } from '../store/actions';
 import ProductForm from './ProductForm';
+import styled from 'styled-components';
+
+const Edit = styled.div`
+    top: 0;
+    padding-top: 70px;
+    height: 110vh;
+    margin: 1.5em 5em;
+`
 
 const ProductEdit = ({ products, fetchProduct, editProduct }) => {
   const { id } = useParams();
@@ -27,7 +35,7 @@ const ProductEdit = ({ products, fetchProduct, editProduct }) => {
   if (!product) return <p>Cargando...</p>;
 
   return (
-    <div>
+    <Edit>
       <h2>Editar Producto</h2>
       <ProductForm
         product={product}
@@ -35,7 +43,7 @@ const ProductEdit = ({ products, fetchProduct, editProduct }) => {
         isEditable={true}
         onCancel={() => navigate('/')}
       />
-    </div>
+    </Edit>
   );
 };
 

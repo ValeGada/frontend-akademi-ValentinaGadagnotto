@@ -3,7 +3,55 @@ import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../store/actions';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
+const ListDiv = styled.div`
+    top: 0;
+    padding-top: 50px;
+    height: 110vh;
+    margin: 1.5em 5em;
+`
+
+const NumbersSpan = styled.span`
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0 10px;
+`
+const PageButton = styled.button`
+    padding: 5px 12px;
+    margin: 2px;
+    cursor: pointer;
+    background: #e0e1e2;
+    color: #555555;
+    transition: all .3s ease;
+    border: 3px solid #e0e1e2;
+    border-radius: 5px;
+
+    &:hover{
+    text-decoration: none;
+    color: #f1f1f1;
+    background: #555555;
+    border: 3px solid #555555;
+    }
+`
+
+const OrderButton = styled.button`
+    padding: 3px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    background: #e0e1e2;
+    color: #555555;
+    transition: all .3s ease;
+    border: 3px solid #e0e1e2;
+    border-radius: 5px;
+
+    &:hover{
+    text-decoration: none;
+    color: #f1f1f1;
+    background: #555555;
+    border: 3px solid #555555;
+    }
+`
 
 const ProductsList = ({fetchProducts, products}) => {
     // Filtros / Orden
@@ -66,7 +114,7 @@ const ProductsList = ({fetchProducts, products}) => {
 
 
     return (
-        <div>
+        <ListDiv>
             <div className="ui secondary pointing menu">
                 <div className='item'>
                     Filtrar por categoría:
@@ -90,16 +138,16 @@ const ProductsList = ({fetchProducts, products}) => {
                 </div>
                 <div className='item'>
                     Ordenar por:
-                    <button onClick={() => priceOrder('price')}>
+                    <OrderButton onClick={() => priceOrder('price')}>
                         Precio {sortBy === 'price' ?( sortOrder === 'asc' ? 
                         <i className='small down arrow icon' /> : 
                         <i className='small up arrow icon' />) : null}
-                    </button>
-                    <button onClick={() => nameOrder('name')}>
+                    </OrderButton>
+                    <OrderButton onClick={() => nameOrder('name')}>
                         Nombre {sortBy === 'name' ?( sortOrder === 'asc' ? 
                         <i className='small down arrow icon' /> : 
                         <i className='small up arrow icon' />) : null}
-                    </button>
+                    </OrderButton>
                 </div>
                 <div className='item'>
                     <input 
@@ -112,8 +160,8 @@ const ProductsList = ({fetchProducts, products}) => {
                 </div>
                 <div className='item'>
                     Productos por página: 
-                    <span style={{textDecoration: 'underline'}} onClick={()=>setProductsPerPage(5)}>5</span> - 
-                    <span style={{textDecoration: 'underline'}} onClick={()=>setProductsPerPage(10)}>10</span>
+                    <NumbersSpan onClick={()=>setProductsPerPage(5)}>5</NumbersSpan> - 
+                    <NumbersSpan onClick={()=>setProductsPerPage(10)}>10</NumbersSpan>
                 </div>                            
             </div>
             <table className="ui table medium">
@@ -167,12 +215,12 @@ const ProductsList = ({fetchProducts, products}) => {
             {/* Paginación */}
             <div>
                 {Array.from({ length: totalPages }, (_, i) => (
-                    <button className="ui button" key={i} onClick={() => setCurrentPage(i + 1)}>
+                    <PageButton key={i} onClick={() => setCurrentPage(i + 1)}>
                         {i + 1}
-                    </button>                   
+                    </PageButton>                   
                 ))}
             </div>
-        </div>
+        </ListDiv>
     );
 }
 

@@ -6,10 +6,9 @@ import AddProduct from './AddProduct';
 import ProductEdit from './ProductEdit';
 import ProductDelete from './ProductDelete';
 
-
 const App = () => {
   return (
-    <div className="ui container">
+    
       <BrowserRouter>
           <NavBar />
           <Routes>
@@ -20,7 +19,6 @@ const App = () => {
             <Route path="/delete-product/:id" element={<ProductDelete />} />
           </Routes>
       </BrowserRouter>
-    </div>
   );
 }
 

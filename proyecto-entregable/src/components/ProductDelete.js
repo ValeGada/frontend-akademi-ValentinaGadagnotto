@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchProduct, deleteProduct } from '../store/actions';
 import Modal from './Modal';
-import ProductForm from './ProductForm';
 
 const ProductDelete = ({ products, fetchProduct, deleteProduct }) => {
     const [isModalOpen, setIsModalOpen] = useState(true);
@@ -23,25 +22,14 @@ const ProductDelete = ({ products, fetchProduct, deleteProduct }) => {
         alert('Producto eliminado correctamente'); // Pasar a modal
         navigate("/");
     }
-    
-    const comeBack = () => {
-        navigate("/");
-    }
 
     return (
-        <div>
-            <Modal isOpen={isModalOpen}>
-                <h2>Eliminar Producto</h2>
-                <ProductForm
-                    product={product}
-                    isEditable={false}
-                    onCancel={() => navigate('/')}
-                />
-                <p>¿Confirma que desea eliminar este producto?</p>
-                <button className="ui button" onClick={confirmDelete}>Eliminar</button>
-                <button className="ui button" onClick={comeBack}>Cancelar</button>
-            </Modal>
-        </div>
+        <Modal isOpen={isModalOpen}>
+            <h2>¿Confirma que desea eliminar este producto?</h2>
+            <h4>{product.name}</h4>
+            <button className="ui button" onClick={confirmDelete}>Eliminar</button>
+            <button className="ui button" onClick={()=>navigate("/")}>Cancelar</button>
+        </Modal>
     );
 };
 

@@ -3,20 +3,11 @@
     {
       "id": "1",
       "name": "Samsung Galaxy S24",
-      "category": "smartphone",
+      "category": "Tablet",
       "price": 1000,
       "stock": 100,
       "description": "Tecnología Dynamic AMOLED 2X",
       "image_url": "https://multipoint.com.ar/Image/0/750_750-2_S24_CobaltViolet_Front.png"
-    },
-    {
-      "id": "2",
-      "name": "iPhone 15 Pro",
-      "category": "Smartphone",
-      "price": 1200,
-      "stock": 50,
-      "description": "Pantalla Super Retina XDR",
-      "image_url": "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/65038654434d0-iPhone%2015%20Pro%20Natural%20titanium%20png.png"
     },
     {
       "id": "3",
@@ -35,15 +26,6 @@
       "stock": 30,
       "description": "Chip M2, batería de 18 horas",
       "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN_D-6OLA5tpu0oiMENLGpmnPbN61Doa4Ndg&s"
-    },
-    {
-      "id": "5",
-      "name": "Dell XPS 13",
-      "category": "notebook",
-      "price": 1300,
-      "stock": 25,
-      "description": "Pantalla InfinityEdge, Intel Core i7",
-      "image_url": "https://media.itechstore.com.np/f_webp/img/product/bd888e38-127c-431e-9dd7-fa47b23f6e78/notebook-xps-13-9340-t-sl-gallery-2.png"
     },
     {
       "id": "6",
@@ -325,20 +307,18 @@
       "image_url": "https://arrichetta.com.ar/wp-content/uploads/2024/08/111922_sp845-apple-tv-4k-2gen.png"
     },
     {
-      "id": "37",
-      "name": "Chromecast con Google TV",
-      "category": "streaming",
-      "price": 50,
-      "stock": 100,
-      "description": "Convierte tu TV en Smart TV",
-      "image_url": "https://storage.googleapis.com/guvery-cdn/public_images/items/261.png"
+      "id": "1b9f",
+      "name": "FDSAFDASG",
+      "price": "3324",
+      "stock": "4324",
+      "category": "Consola"
     },
     {
-      "id": "5077",
-      "name": "unaCosa",
-      "price": "456",
-      "stock": "456",
-      "category": "celular"
+      "id": "413a",
+      "name": "fdsafd",
+      "price": "43243",
+      "stock": "432432",
+      "category": "Auriculares"
     }
   ]
 }

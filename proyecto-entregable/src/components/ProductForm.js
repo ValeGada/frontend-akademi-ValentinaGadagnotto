@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const StyledForm = styled.form`
+  height: 12vh;
+  margin: 1.5em 5em;
+`
 
 const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
     const [formData, setFormData] = useState(product || {});
@@ -55,30 +61,30 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit}>
         <div>
-        <label>Nombre:</label>
-        <input
-          type="text"
-          name="name"
-          min={5}
-          value={formData.name || ''}
-          onChange={handleChange}
-          readOnly={!isEditable}
-        />
-        {errors.name && <span>{errors.name}</span>}
-      </div>
-      <div>
-        <label>Precio:</label>
-        <input
-          type="number"
-          name="price"
-          min={0}
-          value={formData.price || ''}
-          onChange={handleChange}
-          readOnly={!isEditable}
-        />
-        {errors.price && <span>{errors.price}</span>}
+          <label>Nombre:</label>
+          <input
+            type="text"
+            name="name"
+            min={5}
+            value={formData.name || ''}
+            onChange={handleChange}
+            readOnly={!isEditable}
+          />
+          {errors.name && <span>{errors.name}</span>}
+        </div>
+        <div>
+          <label>Precio:</label>
+          <input
+            type="number"
+            name="price"
+            min={0}
+            value={formData.price || ''}
+            onChange={handleChange}
+            readOnly={!isEditable}
+          />
+          {errors.price && <span>{errors.price}</span>}
       </div>
       <div>
         <label>Stock:</label>
@@ -95,25 +101,25 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
       <div>
         <label>Categoría:</label>
         <select 
-            name="category"
-            value={formData.category || ''} 
-            onChange={handleCategory} 
-            disabled={!isEditable}
+          name="category"
+          value={formData.category || ''} 
+          onChange={handleCategory} 
+          disabled={!isEditable}
         >
-            <option value='Smartphone'>Smartphone</option>
-            <option value='Tablet'>Tablet</option>
-            <option value='Auriculares'>Auriculares</option>
-            <option value='Pad'>Pad</option>
-            <option value='Parlante'>Parlante</option>
-            <option value='Consola'>Consola</option>
-            <option value='Notebook'>Notebook</option>
-            <option value='Componente'>Componente</option>
-            <option value='Mouse'>Mouse</option>
-            <option value='Teclado'>Teclado</option>
-            <option value='Smartwatch'>Smartwatch</option>
-            <option value='Streaming'>Streaming</option>
-            <option value='Smart Home'>Smart Home</option>
-            <option value='Cámara'>Cámara</option>
+          <option value='Smartphone'>Smartphone</option>
+          <option value='Tablet'>Tablet</option>
+          <option value='Auriculares'>Auriculares</option>
+          <option value='Pad'>Pad</option>
+          <option value='Parlante'>Parlante</option>
+          <option value='Consola'>Consola</option>
+          <option value='Notebook'>Notebook</option>
+          <option value='Componente'>Componente</option>
+          <option value='Mouse'>Mouse</option>
+          <option value='Teclado'>Teclado</option>
+          <option value='Smartwatch'>Smartwatch</option>
+          <option value='Streaming'>Streaming</option>
+          <option value='Smart Home'>Smart Home</option>
+          <option value='Cámara'>Cámara</option>
         </select>
       </div>
       {isEditable && (
@@ -122,7 +128,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
           {onCancel && <button type="button" onClick={onCancel}>Cancelar</button>}
         </>
       )}
-    </form>
+    </StyledForm>
   );
 };
 
