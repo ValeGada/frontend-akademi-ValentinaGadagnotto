@@ -307,18 +307,12 @@
       "image_url": "https://arrichetta.com.ar/wp-content/uploads/2024/08/111922_sp845-apple-tv-4k-2gen.png"
     },
     {
-      "id": "1b9f",
-      "name": "FDSAFDASG",
-      "price": "3324",
-      "stock": "4324",
-      "category": "Consola"
-    },
-    {
       "id": "413a",
       "name": "fdsafd",
       "price": "43243",
       "stock": "432432",
-      "category": "Auriculares"
+      "category": "Auriculares",
+      "description": "dfsadfsafdsafdsdfaf"
     }
   ]
 }

@@ -13,43 +13,42 @@ const Edit = styled.div`
     justify-items: center;
 `
 
-const ProductEdit = ({ products, fetchProduct, editProduct }) => {
+const ProductEdit = ({ selectedProduct, fetchProduct, editProduct }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const product = products.find(p=>p.id === id);
 
   // Cargar el producto al montar el componente
   useEffect(() => {
-    if (!product) {
+    if (!selectedProduct) {
       fetchProduct(id);
     }
-  }, [product, fetchProduct, id]);
+  }, [selectedProduct, fetchProduct, id]);
 
   // Manejar el envío del formulario
   const handleEditProduct = (updatedProduct) => {
-    const productId = product.id;
+    const productId = selectedProduct.id;
     editProduct(productId, updatedProduct); // Envía los datos a Redux y JSON Server
     alert('Producto actualizado correctamente'); // Pasar a modal
     navigate('/'); // Redirige a la página principal
   };
 
-  if (!product) return <p>Cargando...</p>;
+  if (!selectedProduct) return <p>Cargando...</p>;
 
   return (
     <Edit>
       <h2>Editar Producto</h2>
       <ProductForm
-        product={product}
+        product={selectedProduct}
         onSubmit={handleEditProduct}
         isEditable={true}
-        onCancel={() => navigate(`/product/${product.id}`)}
+        onCancel={() => navigate(`/product/${selectedProduct.id}`)}
       />
     </Edit>
   );
 };
 
 const mapStateToProps = state => {
-  return { products: state.products };
+  return { selectedProduct: state.products.selected };
 };
 
 export default connect(mapStateToProps, { fetchProduct, editProduct })(ProductEdit);

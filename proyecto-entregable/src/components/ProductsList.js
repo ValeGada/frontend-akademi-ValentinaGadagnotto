@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../store/actions';
+import { fetchProducts, deleteProduct, changePage } from '../store/actions';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Modal from './Modal';
 
 const ListDiv = styled.div`
     top: 0;
@@ -65,10 +66,6 @@ const PagingPadding = styled.div`
     padding: 5px 12px;
 `
 
-const StyledTable = styled.table`
-    justify-content: center;
-`
-
 const PageButton = styled.button`
     padding: 5px 12px;
     margin: 2px;
@@ -87,9 +84,7 @@ const PageButton = styled.button`
     }
 `
 
-
-
-const ProductsList = ({fetchProducts, products}) => {
+const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, changePage}) => {
     // Filtros / Orden
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [sortOrder, setSortOrder] = useState('asc');
@@ -98,18 +93,22 @@ const ProductsList = ({fetchProducts, products}) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     // Paginación
-    const [currentPage, setCurrentPage] = useState(1);
+    // const [currentPage, setCurrentPage] = useState(1); --> pasado a estado redux
     const [productsPerPage, setProductsPerPage] = useState(5);
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
     const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
+    // Modal states
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    
+
     useEffect(() => {
       fetchProducts();
-    }, [fetchProducts])
+    }, [fetchProducts]);
 
-    // useEffect para que haga rerender si hay cambios, pero hace falta realmente? 
     useEffect(() => {
         let tempProducts = [...products];
 
@@ -136,136 +135,162 @@ const ProductsList = ({fetchProducts, products}) => {
         setFilteredProducts(tempProducts);
     }, [products, category, searchTerm, sortBy, sortOrder]);
 
-
-    // OnClick events (orden)
-    const priceOrder = () => {
-        setSortBy('price');
-        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    const handleSort = (param) => {
+        if (sortBy === param){
+            setSortOrder(sortOrder === "asc" ? "desc" : "asc")
+        } else {
+            setSortBy(param)
+            setSortOrder("asc")
+        }
     }
 
-    const nameOrder = () => {
-        setSortBy('name');
-        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    const openDeleteModal = (product) => {
+        setSelectedProduct(product);
+        setIsModalOpen(true);
     }
 
+    const confirmDelete = () => {
+        deleteProduct(selectedProduct.id);
+        setIsModalOpen(false);
+        if (currentPage > 1 && currentProducts.length == 1){ // 1 y no 0, creo que tarda en cargar los cambios post eliminación
+            changePage(currentPage - 1);
+        }
+    }
 
     return (
-        <ListDiv>
-            <div className="ui secondary pointing menu">
-                <div className='item'>
-                    Filtrar por categoría:
-                    <FilterSelect onChange={e => setCategory(e.target.value)}>
-                        <option value=''></option>
-                        <option value='Smartphone'>Smartphone</option>
-                        <option value='Tablet'>Tablet</option>
-                        <option value='Auriculares'>Auriculares</option>
-                        <option value='Pad'>Pad</option>
-                        <option value='Parlante'>Parlante</option>
-                        <option value='Consola'>Consola</option>
-                        <option value='Notebook'>Notebook</option>
-                        <option value='Componente'>Componente</option>
-                        <option value='Mouse'>Mouse</option>
-                        <option value='Teclado'>Teclado</option>
-                        <option value='Smartwatch'>Smartwatch</option>
-                        <option value='Streaming'>Streaming</option>
-                        <option value='Smart Home'>Smart Home</option>
-                        <option value='Cámara'>Cámara</option>
-                    </FilterSelect>
+        <>
+            <ListDiv>
+                <div className="ui secondary pointing menu">
+                    <div className='item'>
+                        Filtrar por categoría:
+                        <FilterSelect onChange={e => setCategory(e.target.value)}>
+                            <option value=''></option>
+                            <option value='Smartphone'>Smartphone</option>
+                            <option value='Tablet'>Tablet</option>
+                            <option value='Auriculares'>Auriculares</option>
+                            <option value='Pad'>Pad</option>
+                            <option value='Parlante'>Parlante</option>
+                            <option value='Consola'>Consola</option>
+                            <option value='Notebook'>Notebook</option>
+                            <option value='Componente'>Componente</option>
+                            <option value='Mouse'>Mouse</option>
+                            <option value='Teclado'>Teclado</option>
+                            <option value='Smartwatch'>Smartwatch</option>
+                            <option value='Streaming'>Streaming</option>
+                            <option value='Smart Home'>Smart Home</option>
+                            <option value='Cámara'>Cámara</option>
+                        </FilterSelect>
+                    </div>
+                    <div className='item'>
+                        Ordenar por:
+                        <OrderButton onClick={() => handleSort('price')}>
+                            Precio {sortBy === 'price' ?( sortOrder === 'asc' ? 
+                            <i className='small down arrow icon' /> : 
+                            <i className='small up arrow icon' />) : null}
+                        </OrderButton>
+                        <OrderButton onClick={() => handleSort('name')}>
+                            Nombre {sortBy === 'name' ?( sortOrder === 'asc' ? 
+                            <i className='small down arrow icon' /> : 
+                            <i className='small up arrow icon' />) : null}
+                        </OrderButton>
+                    </div>
+                    <div className='item'>
+                        <SearchInput 
+                            type='text' 
+                            placeholder='Buscar producto'
+                            value={searchTerm}
+                            onChange={e => setSearchTerm(e.target.value)}
+                        />
+                    </div>
+                    <div className='item'>
+                    <PagingPadding>
+                        Productos por página: 
+                        <NumbersSpan onClick={()=>setProductsPerPage(5)}>5</NumbersSpan> - 
+                        <NumbersSpan onClick={()=>setProductsPerPage(10)}>10</NumbersSpan>
+                    </PagingPadding>  
+                    </div>                          
                 </div>
-                <div className='item'>
-                    Ordenar por:
-                    <OrderButton onClick={() => priceOrder('price')}>
-                        Precio {sortBy === 'price' ?( sortOrder === 'asc' ? 
-                        <i className='small down arrow icon' /> : 
-                        <i className='small up arrow icon' />) : null}
-                    </OrderButton>
-                    <OrderButton onClick={() => nameOrder('name')}>
-                        Nombre {sortBy === 'name' ?( sortOrder === 'asc' ? 
-                        <i className='small down arrow icon' /> : 
-                        <i className='small up arrow icon' />) : null}
-                    </OrderButton>
-                </div>
-                <div className='item'>
-                    <SearchInput 
-                        type='text' 
-                        placeholder='Buscar producto'
-                        value={searchTerm}
-                        minLength={5}
-                        onChange={e => setSearchTerm(e.target.value)}
-                    />
-                </div>
-                <div className='item'>
-                <PagingPadding>
-                    Productos por página: 
-                    <NumbersSpan onClick={()=>setProductsPerPage(5)}>5</NumbersSpan> - 
-                    <NumbersSpan onClick={()=>setProductsPerPage(10)}>10</NumbersSpan>
-                </PagingPadding>  
-                </div>                          
-            </div>
-            <StyledTable className="ui table medium">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Categoría</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Stock disponible</th>
-                        <th>Ver</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredProducts && filteredProducts.length > 0 ? (
-                        currentProducts.map(product => (
-                            <tr key={product.id}>
-                                <td>
-                                    <Link to={`/product/${product.id}`}>
-                                        {product.name}
-                                    </Link>
-                                </td>
-                                <td>{product.category}</td>
-                                <td>{product.description}</td>
-                                <td>${product.price}</td>
-                                <td>{product.stock}</td>
-                                <td>
-                                    <Link to={`/product/${product.id}`}>
-                                        <i className='ui eye icon' />
-                                    </Link>
-                                </td>
-                                <td>
-                                    <Link to={`/edit-product/${product.id}`}>
-                                        <i className="ui pencil icon" />
-                                    </Link>
-                                </td>
-                                <td>
-                                    <Link to={`/delete-product/${product.id}`}>
-                                        <i className="ui trash icon" />
-                                    </Link>
-                                </td>
-                            </tr>
-                            ))
-                        ) : (
+                <table className="ui table medium">
+                    <thead>
                         <tr>
-                            <td colSpan='6' style={{textAlign: 'center'}}>No hay productos disponibles</td>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Stock disponible</th>
+                            <th>Ver</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </tr>
-                    )}
-                </tbody>
-            </StyledTable>
-            {/* Paginación */}
-            <div>
-                {Array.from({ length: totalPages }, (_, i) => (
-                    <PageButton key={i} onClick={() => setCurrentPage(i + 1)}>
-                        {i + 1}
-                    </PageButton>                   
-                ))}
-            </div>
-        </ListDiv>
+                    </thead>
+                    <tbody>
+                        {currentProducts && currentProducts.length > 0 ? (
+                            currentProducts.map(product => (
+                                <tr key={product.id}>
+                                    <td>
+                                        <Link to={`/product/${product.id}`}>
+                                            {product.name}
+                                        </Link>
+                                    </td>
+                                    <td>{product.category}</td>
+                                    <td>{product.description}</td>
+                                    <td>${product.price}</td>
+                                    <td>{product.stock}</td>
+                                    <td>
+                                        <Link to={`/product/${product.id}`}>
+                                            <i className='ui eye icon' />
+                                        </Link>
+                                    </td>
+                                    <td>
+                                        <Link to={`/edit-product/${product.id}`}>
+                                            <i className="ui pencil icon" />
+                                        </Link>
+                                    </td>
+                                    <td>
+                                        <i 
+                                            className="ui trash icon" 
+                                            onClick={() => openDeleteModal(product)}
+                                            style={{ cursor: 'pointer' }}
+                                        />
+                                    </td>
+                                </tr>
+                                ))
+                            ) : (
+                            <tr>
+                                <td colSpan='8' style={{textAlign: 'center'}}>No hay productos disponibles</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+                {/* Paginación */}
+                <div>
+                    {filteredProducts.length > 0 && Array.from({ length: totalPages }, (_, i) => (
+                        <PageButton 
+                            key={i} 
+                            onClick={() => changePage(i + 1)}
+                            style={currentPage === i + 1 ? { background: '#555555', color: '#f1f1f1' } : {}}
+                        >
+                            {i + 1}
+                        </PageButton>                   
+                    ))}
+                </div>
+            </ListDiv>
+            <Modal isOpen={isModalOpen}>
+                <h2>¿Confirma que desea eliminar este producto?</h2>
+                <h3 style={{textAlign: 'center'}}>{selectedProduct?.name}</h3>
+                <img src={selectedProduct?.image_url} height={100} style={{justifySelf: 'center'}} />
+                <button className="ui button negative" onClick={confirmDelete} style={{justifySelf: 'center', textAlign: 'center'}}>Eliminar</button>
+                <button className="ui button" onClick={() => setIsModalOpen(false)} style={{justifySelf: 'center', textAlign: 'center'}}>Cancelar</button>
+            </Modal>
+        </>
     );
 }
 
 const mapStateToProps = state => {
-    return { products: state.products };
+    return {
+        products: state.products.all,
+        currentPage: state.products.currentPage
+     };
 };
 
-export default connect(mapStateToProps, { fetchProducts })(ProductsList);
+export default connect(mapStateToProps, { fetchProducts, deleteProduct, changePage })(ProductsList);

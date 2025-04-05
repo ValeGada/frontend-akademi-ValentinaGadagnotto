@@ -8,12 +8,12 @@ import styled from 'styled-components';
 const Detail = styled.div`
     top: 0;
     padding-top: 70px;
-    height: 110vh;
+    height: 100%;
     margin: 1.5em;
     justify-items: center;
 `
 const DetailButton = styled.button`
-    margin: 13.6em 1.85em;
+    margin: 1.85em;
     justify-self: center;
     padding: 3px 10px;
     cursor: pointer;
@@ -31,24 +31,23 @@ const DetailButton = styled.button`
     }
 `
 
-const ProductDetail = ({ products, fetchProduct }) => {
+const ProductDetail = ({ selectedProduct, fetchProduct }) => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const product = products.find(p=>p.id === id);
     
     useEffect(() => {
-        if (!product) {
+        if (!selectedProduct) {
             fetchProduct(id);
         }
-    }, [product])
+    }, [id])
 
-    if (!product) return <p>Cargando...</p>;
+    if (!selectedProduct) return <p>Cargando...</p>;
 
     return (
       <Detail>
         <h2>Detalle del Producto</h2>
         <ProductForm
-            product={product}
+            product={selectedProduct}
             isEditable={false}
         />
         <DetailButton onClick={() => navigate(`/edit-product/${id}`)}>Editar</DetailButton>
@@ -58,7 +57,7 @@ const ProductDetail = ({ products, fetchProduct }) => {
 };
 
 const mapStateToProps = state => {
-    return { products: state.products };
+    return { selectedProduct: state.products.selected };
 };
 
 export default connect(mapStateToProps, { fetchProduct })(ProductDetail);

@@ -4,7 +4,8 @@ import {
     FETCH_PRODUCTS, 
     FETCH_PRODUCT, 
     EDIT_PRODUCT, 
-    DELETE_PRODUCT
+    DELETE_PRODUCT,
+    CHANGE_PAGE
 } from './types';
 
 // Action creators for each REST method
@@ -37,4 +38,8 @@ export const deleteProduct = id => async dispatch => {
 
     dispatch ({ type: DELETE_PRODUCT, payload: id });
 };
+
+export const changePage = page => dispatch => {
+    dispatch({ type: CHANGE_PAGE, payload: page})
+}
 

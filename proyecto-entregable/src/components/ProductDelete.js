@@ -37,4 +37,4 @@ const mapStateToProps = state => {
     return { products: state.products };
 };
 
-export default connect(mapStateToProps, { fetchProduct, deleteProduct}) (ProductDelete);
+export default connect(mapStateToProps, { fetchProduct, deleteProduct }) (ProductDelete);

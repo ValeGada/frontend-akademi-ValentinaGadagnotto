@@ -2,22 +2,34 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-    height: 17vh;
-    margin: 1.5em;
     justify-self: center;
 `
 
 const StyledInput = styled.input`
-    background:rgba(224, 225, 226, 0);
+    background:rgba(250, 252, 255, 0.65);
     border: none;
     font-size: 16px;
-    padding: 3px 10px 18px 4px;
+    padding: 3px 10px 3px 5px;
+    margin-bottom: 5px;
     font-weight: bold;
+`
+
+const StyledTextarea = styled.textarea`
+    background:rgba(250, 252, 255, 0.65);
+    border: none;
+    font-size: 16px;
+    padding: 3px 10px 3px 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+`
+
+const StyledSpan = styled.span`
+    padding: 3px 2px 3px 5px;
 `
 
 const StyledSelect = styled.select`
     color:rgb(0, 0, 0);
-    background:rgba(224, 225, 226, 0);
+    background:rgba(250, 252, 255, 0.65);
     border: none;
     font-size: 16px;
     padding: 3px 10px 0 0;
@@ -72,26 +84,26 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
 
         // Nombre
         if (!formData.name) {
-            newErrors.name = 'El nombre es obligatorio';
+            newErrors.name = '* El nombre es obligatorio';
         } else if (formData.name.length < 5) {
-            newErrors.name = 'El nombre debe contener al menos 5 caracteres';
+            newErrors.name = '* El nombre debe contener al menos 5 caracteres';
         }
 
-        // Nombre
+        // Descripción
         if (!formData.description) {
-          newErrors.description = 'La descripción es obligatorio';
+          newErrors.description = '* La descripción es obligatoria';
         } else if (formData.description.length < 5) {
-          newErrors.description = 'La descripción debe contener al menos 5 caracteres';
+          newErrors.description = '* La descripción debe contener al menos 5 caracteres';
         }
   
         // Precio
         if (!formData.price || formData.price <= 0) {
-            newErrors.price = 'El precio debe ser un número mayor a 0';
+            newErrors.price = '* El precio debe ser un número mayor a 0';
         }
   
         // Stock
         if (!formData.stock || formData.stock < 0) {
-            newErrors.stock = 'El stock no puede ser negativo';
+            newErrors.stock = '* El stock no puede ser negativo';
         }
   
         setErrors(newErrors);
@@ -119,21 +131,24 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
             onChange={handleChange}
             readOnly={!isEditable}
           />
-          {errors.name && <span>{errors.name}</span>}
+          <div>{errors.name && <StyledSpan>{errors.name}</StyledSpan>}</div>
         </div>
+        
         <div>
           <label>Descripción:</label>
           <br />
-          <StyledInput
+          <StyledTextarea
             type="text"
             name="description"
             min={5}
             value={formData.description || ''}
             onChange={handleChange}
             readOnly={!isEditable}
+            rows={5}
           />
-          {errors.name && <span>{errors.name}</span>}
+          <div>{errors.description && <StyledSpan>{errors.description}</StyledSpan>}</div>
         </div>
+        
         <div>
           <label>Precio:</label>
           <br />
@@ -145,8 +160,9 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
             onChange={handleChange}
             readOnly={!isEditable}
           />
-          {errors.price && <span>{errors.price}</span>}
+          <div>{errors.price && <StyledSpan>{errors.price}</StyledSpan>}</div>
       </div>
+      
       <div>
         <label>Stock:</label>
         <br />
@@ -158,8 +174,9 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
           onChange={handleChange}
           readOnly={!isEditable}
         />
-        {errors.stock && <span>{errors.stock}</span>}
+        <div>{errors.stock && <StyledSpan>{errors.stock}</StyledSpan>}</div>
       </div>
+      
       <div>
         <label>Categoría:</label>
         <br />
