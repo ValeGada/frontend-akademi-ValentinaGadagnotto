@@ -1,61 +1,6 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { StyledForm, StyledInput, StyledTextarea, StyledSpan, StyledSelect, StyledImgInput, ButtonsDiv, ConfirmButton, CancelButton } from '../styles';
 
-const StyledForm = styled.form`
-    justify-self: center;
-`
-
-const StyledInput = styled.input`
-    background:rgba(250, 252, 255, 0.65);
-    border: none;
-    font-size: 16px;
-    padding: 3px 10px 3px 5px;
-    margin-bottom: 5px;
-    font-weight: bold;
-`
-
-const StyledTextarea = styled.textarea`
-    background:rgba(250, 252, 255, 0.65);
-    border: none;
-    font-size: 16px;
-    padding: 3px 10px 3px 5px;
-    margin-bottom: 5px;
-    font-weight: bold;
-`
-
-const StyledSpan = styled.span`
-    padding: 3px 2px 3px 5px;
-`
-
-const StyledSelect = styled.select`
-    color:rgb(0, 0, 0);
-    background:rgba(250, 252, 255, 0.65);
-    border: none;
-    font-size: 16px;
-    padding: 3px 10px 0 0;
-    font-weight: bold;
-    align-self: center;
-    justify-self: center;
-`
-
-const FormButton = styled.button`
-    justify-self: center;
-    padding: 3px 10px;
-    margin: 1em;
-    cursor: pointer;
-    background: #e0e1e2;
-    color: #555555;
-    transition: all .3s ease;
-    border: 3px solid #e0e1e2;
-    border-radius: 5px;
-
-    &:hover{
-    text-decoration: none;
-    color: #f1f1f1;
-    background: #555555;
-    border: 3px solid #555555;
-    }
-`
 
 const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
     const [formData, setFormData] = useState(product || {});
@@ -105,6 +50,13 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
         if (!formData.stock || formData.stock < 0) {
             newErrors.stock = '* El stock no puede ser negativo';
         }
+
+        // URL de imagen
+        // if (!formData.image_url) {
+        //   newErrors.image_url = '* La url es obligatoria';
+        // } else if (formData.image_url.contains(!jpg || !png)) {
+        //   newErrors.image_url = '* La url debe direccionar a una imagen .jpg o .png';
+        // }
   
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0; // Si pasa la validación, return true
@@ -202,13 +154,26 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
           <option value='Cámara'>Cámara</option>
         </StyledSelect>
       </div>
+      <div>
+      <label>URL de imagen:</label>
+        <br />
+        <StyledImgInput
+          type="text"
+          name="image_url"
+          value={formData.image_url || ''}
+          onChange={handleChange}
+          readOnly={!isEditable}
+        />
+      </div>
       <br />
-      {isEditable && (
-        <>
-          <FormButton type="submit">Confirmar</FormButton>
-          {onCancel && <FormButton type="button" onClick={onCancel}>Cancelar</FormButton>}
-        </>
-      )}
+      <ButtonsDiv>
+        {isEditable && (
+          <>
+            <ConfirmButton type="submit">Confirmar</ConfirmButton>
+            {onCancel && <CancelButton type="button" onClick={onCancel}>Cancelar</CancelButton>}
+          </>
+        )}
+      </ButtonsDiv>
     </StyledForm>
   );
 };

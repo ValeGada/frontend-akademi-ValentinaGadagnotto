@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Samsung Galaxy S24",
       "category": "Tablet",
-      "price": 1000,
+      "price": "1000",
       "stock": 100,
       "description": "Tecnología Dynamic AMOLED 2X",
       "image_url": "https://multipoint.com.ar/Image/0/750_750-2_S24_CobaltViolet_Front.png"
@@ -21,11 +21,11 @@
     {
       "id": "4",
       "name": "MacBook Air M2",
-      "category": "notebook",
+      "category": "Notebook",
       "price": 1400,
       "stock": 30,
       "description": "Chip M2, batería de 18 horas",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN_D-6OLA5tpu0oiMENLGpmnPbN61Doa4Ndg&s"
+      "image_url": "https://maximstore.com/_next/image?url=https%3A%2F%2Fback.maximstore.com%2Fstatic%2Fimages%2Fcbab00ee-4a57-459c-b70f-062b2a997fee.png&w=3840&q=75"
     },
     {
       "id": "6",
@@ -305,14 +305,6 @@
       "stock": 60,
       "description": "Streaming de alta calidad",
       "image_url": "https://arrichetta.com.ar/wp-content/uploads/2024/08/111922_sp845-apple-tv-4k-2gen.png"
-    },
-    {
-      "id": "413a",
-      "name": "fdsafd",
-      "price": "43243",
-      "stock": "432432",
-      "category": "Auriculares",
-      "description": "dfsadfsafdsafdsdfaf"
     }
   ]
 }

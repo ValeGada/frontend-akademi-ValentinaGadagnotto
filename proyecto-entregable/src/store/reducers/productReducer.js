@@ -4,13 +4,17 @@ import {
     FETCH_PRODUCT,
     EDIT_PRODUCT,
     DELETE_PRODUCT,
-    CHANGE_PAGE
+    CHANGE_PAGE,
+    SET_MESSAGE,
+    SET_IS_LOADING
   } from "../actions/types";
   
   const initialState = {
     all: [],
     selected: null,
-    currentPage: 1
+    currentPage: 1,
+    message: '',
+    isLoading: false,
   };
   
   export default (state = initialState, action) => {
@@ -43,8 +47,14 @@ import {
         };
 
       case CHANGE_PAGE:
-        return { ...state, currentPage: action.payload }
+        return { ...state, currentPage: action.payload };
       
+      case SET_MESSAGE:
+        return { ...state, message: action.payload };
+
+      case SET_IS_LOADING:
+        return { ...state, isLoading: action.payload}
+
       default:
         return state;
     }

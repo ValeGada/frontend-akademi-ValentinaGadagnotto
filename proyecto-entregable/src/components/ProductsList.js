@@ -1,90 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts, deleteProduct, changePage } from '../store/actions';
+import { fetchProducts, deleteProduct, changePage, setMessage } from '../store/actions';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { ListDiv, SearchInput, BarDiv, FilterDiv, FilterSelect, OrderButton, NumbersSpan, Paging, PageButton } from '../styles'
 import Modal from './Modal';
 
-const ListDiv = styled.div`
-    top: 0;
-    padding-top: 50px;
-    height: 110vh;
-    margin: 1.5em 5em;
-`
 
-const FilterSelect = styled.select`
-    border-radius: 3px;
-    border: 1px solid #f1f1f1;
-    border: none;
-    color: #000000;
-    padding: 5px 12px;
-    margin-left: 1em;
-    margin-right: 3em;
-`
-
-const OrderButton = styled.button`
-    padding: 3px 10px;
-    margin-left: 1em;
-    cursor: pointer;
-    background: #e0e1e2;
-    color: #555555;
-    transition: all .3s ease;
-    border: 3px solid #e0e1e2;
-    border-radius: 5px;
-
-    &:hover{
-    text-decoration: none;
-    color: #f1f1f1;
-    background: #555555;
-    border: 3px solid #555555;
-    }
-`
-
-const SearchInput = styled.input`
-    margin-left: 3em;
-    margin-right: 5em;
-    border-radius: 3px;
-    border: 1px solid #f1f1f1;
-    border: none;
-    color: #000000;
-    padding: 5px 12px;
-`
-
-const NumbersSpan = styled.span`
-    cursor: pointer;
-    padding: 0 5px;
-    color: #000000;
-    transition: all .3s ease;
-
-    &:hover{
-    text-decoration: none;
-    color: #4183c4;
-    }
-`
-const PagingPadding = styled.div`
-    padding: 5px 12px;
-`
-
-const PageButton = styled.button`
-    padding: 5px 12px;
-    margin: 2px;
-    cursor: pointer;
-    background: #e0e1e2;
-    color: #555555;
-    transition: all .3s ease;
-    border: 3px solid #e0e1e2;
-    border-radius: 5px;
-
-    &:hover{
-    text-decoration: none;
-    color: #f1f1f1;
-    background: #555555;
-    border: 3px solid #555555;
-    }
-`
-
-const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, changePage}) => {
+const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, changePage, setMessage}) => {
     // Filtros / Orden
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [sortOrder, setSortOrder] = useState('asc');
@@ -152,6 +75,7 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
     const confirmDelete = () => {
         deleteProduct(selectedProduct.id);
         setIsModalOpen(false);
+        setMessage('Producto eliminado correctamente');
         if (currentPage > 1 && currentProducts.length == 1){ // 1 y no 0, creo que tarda en cargar los cambios post eliminación
             changePage(currentPage - 1);
         }
@@ -162,26 +86,35 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
             <ListDiv>
                 <div className="ui secondary pointing menu">
                     <div className='item'>
-                        Filtrar por categoría:
-                        <FilterSelect onChange={e => setCategory(e.target.value)}>
-                            <option value=''></option>
-                            <option value='Smartphone'>Smartphone</option>
-                            <option value='Tablet'>Tablet</option>
-                            <option value='Auriculares'>Auriculares</option>
-                            <option value='Pad'>Pad</option>
-                            <option value='Parlante'>Parlante</option>
-                            <option value='Consola'>Consola</option>
-                            <option value='Notebook'>Notebook</option>
-                            <option value='Componente'>Componente</option>
-                            <option value='Mouse'>Mouse</option>
-                            <option value='Teclado'>Teclado</option>
-                            <option value='Smartwatch'>Smartwatch</option>
-                            <option value='Streaming'>Streaming</option>
-                            <option value='Smart Home'>Smart Home</option>
-                            <option value='Cámara'>Cámara</option>
-                        </FilterSelect>
+                        <SearchInput 
+                            type='text' 
+                            placeholder='Buscar producto...'
+                            value={searchTerm}
+                            onChange={e => setSearchTerm(e.target.value)}
+                        />
                     </div>
-                    <div className='item'>
+                    <BarDiv>
+                        <FilterDiv>
+                            Filtrar por categoría:
+                            <FilterSelect onChange={e => setCategory(e.target.value)}>
+                                <option value=''></option>
+                                <option value='Smartphone'>Smartphone</option>
+                                <option value='Tablet'>Tablet</option>
+                                <option value='Auriculares'>Auriculares</option>
+                                <option value='Pad'>Pad</option>
+                                <option value='Parlante'>Parlante</option>
+                                <option value='Consola'>Consola</option>
+                                <option value='Notebook'>Notebook</option>
+                                <option value='Componente'>Componente</option>
+                                <option value='Mouse'>Mouse</option>
+                                <option value='Teclado'>Teclado</option>
+                                <option value='Smartwatch'>Smartwatch</option>
+                                <option value='Streaming'>Streaming</option>
+                                <option value='Smart Home'>Smart Home</option>
+                                <option value='Cámara'>Cámara</option>
+                            </FilterSelect>
+                        </FilterDiv>
+                    <div>
                         Ordenar por:
                         <OrderButton onClick={() => handleSort('price')}>
                             Precio {sortBy === 'price' ?( sortOrder === 'asc' ? 
@@ -193,22 +126,8 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
                             <i className='small down arrow icon' /> : 
                             <i className='small up arrow icon' />) : null}
                         </OrderButton>
-                    </div>
-                    <div className='item'>
-                        <SearchInput 
-                            type='text' 
-                            placeholder='Buscar producto'
-                            value={searchTerm}
-                            onChange={e => setSearchTerm(e.target.value)}
-                        />
-                    </div>
-                    <div className='item'>
-                    <PagingPadding>
-                        Productos por página: 
-                        <NumbersSpan onClick={()=>setProductsPerPage(5)}>5</NumbersSpan> - 
-                        <NumbersSpan onClick={()=>setProductsPerPage(10)}>10</NumbersSpan>
-                    </PagingPadding>  
-                    </div>                          
+                        </div>
+                    </BarDiv>                       
                 </div>
                 <table className="ui table medium">
                     <thead>
@@ -243,14 +162,14 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
                                     </td>
                                     <td>
                                         <Link to={`/edit-product/${product.id}`}>
-                                            <i className="ui pencil icon" />
+                                            <i className="ui edit icon" />
                                         </Link>
                                     </td>
                                     <td>
                                         <i 
                                             className="ui trash icon" 
                                             onClick={() => openDeleteModal(product)}
-                                            style={{ cursor: 'pointer' }}
+                                            style={{ cursor: 'pointer', color: '#4183c4' }}
                                         />
                                     </td>
                                 </tr>
@@ -263,7 +182,12 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
                     </tbody>
                 </table>
                 {/* Paginación */}
-                <div>
+                    <Paging>
+                        Productos por página: 
+                        <NumbersSpan onClick={()=>setProductsPerPage(5)}>5</NumbersSpan> - 
+                        <NumbersSpan onClick={()=>setProductsPerPage(10)}>10</NumbersSpan>
+                    </Paging>
+                    <Paging>
                     {filteredProducts.length > 0 && Array.from({ length: totalPages }, (_, i) => (
                         <PageButton 
                             key={i} 
@@ -273,7 +197,7 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
                             {i + 1}
                         </PageButton>                   
                     ))}
-                </div>
+                    </Paging>
             </ListDiv>
             <Modal isOpen={isModalOpen}>
                 <h2>¿Confirma que desea eliminar este producto?</h2>
@@ -290,7 +214,7 @@ const mapStateToProps = state => {
     return {
         products: state.products.all,
         currentPage: state.products.currentPage
-     };
+    };
 };
 
-export default connect(mapStateToProps, { fetchProducts, deleteProduct, changePage })(ProductsList);
+export default connect(mapStateToProps, { fetchProducts, deleteProduct, changePage, setMessage })(ProductsList);

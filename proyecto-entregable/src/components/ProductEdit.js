@@ -1,19 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
-import { fetchProduct, editProduct } from '../store/actions';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { fetchProduct, editProduct, setMessage } from '../store/actions';
 import ProductForm from './ProductForm';
-import styled from 'styled-components';
+import { Card, StyledImageGrid, StyledHeader, FlexGap, BackIcon } from '../styles';
 
-const Edit = styled.div`
-    top: 0;
-    padding-top: 70px;
-    height: 110vh;
-    margin: 1.5em 5em;    
-    justify-items: center;
-`
 
-const ProductEdit = ({ selectedProduct, fetchProduct, editProduct }) => {
+const ProductEdit = ({ selectedProduct, fetchProduct, editProduct, setMessage }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -28,22 +21,28 @@ const ProductEdit = ({ selectedProduct, fetchProduct, editProduct }) => {
   const handleEditProduct = (updatedProduct) => {
     const productId = selectedProduct.id;
     editProduct(productId, updatedProduct); // Envía los datos a Redux y JSON Server
-    alert('Producto actualizado correctamente'); // Pasar a modal
+    // alert('Producto actualizado correctamente'); // Pasado a modal
+    setMessage('Producto editado correctamente');
     navigate('/'); // Redirige a la página principal
   };
 
   if (!selectedProduct) return <p>Cargando...</p>;
 
   return (
-    <Edit>
-      <h2>Editar Producto</h2>
+    <Card>
+      <StyledImageGrid>
+        <img src={selectedProduct.image_url} height={200} max-width={300}/>
+      </StyledImageGrid>
+      <StyledHeader>
+        <h2>Editar Producto</h2>
+      </StyledHeader>
       <ProductForm
         product={selectedProduct}
         onSubmit={handleEditProduct}
         isEditable={true}
-        onCancel={() => navigate(`/product/${selectedProduct.id}`)}
+        onCancel={() => navigate(-1)}
       />
-    </Edit>
+    </Card>
   );
 };
 
@@ -51,4 +50,4 @@ const mapStateToProps = state => {
   return { selectedProduct: state.products.selected };
 };
 
-export default connect(mapStateToProps, { fetchProduct, editProduct })(ProductEdit);
+export default connect(mapStateToProps, { fetchProduct, editProduct, setMessage })(ProductEdit);
