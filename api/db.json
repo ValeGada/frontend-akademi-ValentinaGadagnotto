@@ -12,11 +12,11 @@
     {
       "id": "3",
       "name": "Xiaomi Redmi Note 12",
-      "category": "Tablet",
-      "price": 350,
-      "stock": 80,
+      "category": "Smartphone",
+      "price": "350",
+      "stock": "80",
       "description": "Cámara de 108MP, carga rápida",
-      "image_url": "https://www.cordobadigital.net/wp-content/uploads/2023/11/note-12.png"
+      "image_url": "https://tienda.movistar.com.ec/media/catalog/product/cache/d730591e49ae7d4a1adb9133c8cae915/x/i/xiaomi-redmi-note-12-gris-doble-movistar.png"
     },
     {
       "id": "4",

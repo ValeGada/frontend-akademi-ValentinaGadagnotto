@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchProduct } from '../store/actions';
 import ProductForm from "./ProductForm";
 import { Card, StyledImageGrid, StyledHeader, FlexGap, EditIcon, BackIcon, EmptyDiv } from '../styles';
@@ -8,7 +8,6 @@ import { Card, StyledImageGrid, StyledHeader, FlexGap, EditIcon, BackIcon, Empty
 
 const ProductDetail = ({ selectedProduct, fetchProduct, isLoading }) => {
     const { id } = useParams();
-    const navigate = useNavigate();
     
     useEffect(() => {
         if (!selectedProduct || selectedProduct.id !== id) {
@@ -25,7 +24,7 @@ const ProductDetail = ({ selectedProduct, fetchProduct, isLoading }) => {
     return (
       <Card>
         <StyledImageGrid>
-            <img src={selectedProduct?.image_url} height={200} max-width={300}/>
+            <img src={selectedProduct?.image_url} width={300} style={{objectFit: 'contain'}}/>
         </StyledImageGrid>
         <StyledHeader>
             <FlexGap>

@@ -23,16 +23,15 @@ export const NavBarMenu = styled.div`
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 65px;
+    height: 45px;
     background:rgb(114, 114, 114); 
     z-index: 1000;   
 `
 export const ListLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
-    font-weight: 00;
     color: #f1f1f1;
-    margin: 1.25em;
+    margin: 12.5px;
     float: left;
     
     &:hover {
@@ -45,8 +44,7 @@ export const AddButton = styled.button`
     background: #e0e1e2;
     color: #555555;
     cursor: pointer;
-    font-size: 1em;
-    margin: 1em;
+    margin: 10px;
     padding: 4px 12px;
     border: 1px solid #e0e1e2;
     border-radius: 5px;
@@ -72,7 +70,7 @@ export const OverlayDiv = styled.div`
 `
 
 export const ContentDiv = styled.div`
-    min-width: 600px;
+    min-width: 500px;
     min-heigth: 300px;
     top: 40%;
     left: 50%;
@@ -105,7 +103,7 @@ export const BarDiv = styled.div`
     align-items: center;  
 `
 export const FilterDiv = styled.div`
-    margin-right: 5em;
+    margin-right: 4em;
 `
 
 export const FilterSelect = styled.select`
@@ -176,6 +174,10 @@ export const StyledForm = styled.form`
     grid-row: 2/4;
 `
 
+export const StyledLabel= styled.label`
+    font-weight: bold;
+`
+
 export const StyledInput = styled.input`
     background:rgba(250, 252, 255, 0.65);
     border: none;
@@ -183,7 +185,6 @@ export const StyledInput = styled.input`
     padding: 3px 0 3px 5px;
     width: 350px;
     margin-bottom: 10px;
-    font-weight: bold;
 `
 
 export const StyledImgInput = styled.input`
@@ -202,7 +203,6 @@ export const StyledTextarea = styled.textarea`
     padding: 3px 0 3px 5px;
     width: 350px;
     margin-bottom: 10px;
-    font-weight: bold;
 `
 
 export const StyledSpan = styled.span`
@@ -217,7 +217,6 @@ export const StyledSelect = styled.select`
     padding: 3px 0;
     width: 350px;
     margin-bottom: 10px;
-    font-weight: bold;
     align-self: center;
     justify-self: center;
 `
@@ -270,10 +269,9 @@ export const CancelButton = styled.button`
 export const Card = styled.div`
     top: 0;
     height: 100vh;
-    padding-top: 70px;
-    margin: 1.5em 5em;
+    padding-top: 50px;
     display: grid;
-    grid-template-columns: 300px 350px;
+    grid-template-columns: 340px 350px;
     grid-template-rows: 10% 70% 5%;
     justify-content: center;
 `
@@ -281,8 +279,7 @@ export const Card = styled.div`
 export const AddProductCard = styled.div`
     top: 0;
     height: 100vh;
-    padding-top: 70px;
-    margin: 1.5em 5em;
+    padding-top: 50px;
     display: grid;
     grid-template-rows: 10% 70% 5%;
     justify-content: center;
@@ -290,7 +287,8 @@ export const AddProductCard = styled.div`
 
 export const StyledImageGrid = styled.div`
     grid-row: 2;
-    align-self: center;
+    align-content: center;
+    justify-content: center;
 `
 
 export const StyledHeader = styled.div`

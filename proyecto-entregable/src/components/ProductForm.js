@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyledForm, StyledInput, StyledTextarea, StyledSpan, StyledSelect, StyledImgInput, ButtonsDiv, ConfirmButton, CancelButton } from '../styles';
+import { StyledForm, StyledLabel, StyledInput, StyledTextarea, StyledSpan, StyledSelect, StyledImgInput, ButtonsDiv, ConfirmButton, CancelButton } from '../styles';
 
 
 const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
@@ -73,7 +73,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
     return (
       <StyledForm onSubmit={handleSubmit}>
         <div>
-          <label>Nombre:</label>
+          <StyledLabel>Nombre:</StyledLabel>
           <br />
           <StyledInput
             type="text"
@@ -87,7 +87,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
         </div>
         
         <div>
-          <label>Descripción:</label>
+          <StyledLabel>Descripción:</StyledLabel>
           <br />
           <StyledTextarea
             type="text"
@@ -102,7 +102,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
         </div>
         
         <div>
-          <label>Precio:</label>
+          <StyledLabel>Precio:</StyledLabel>
           <br />
           <StyledInput
             type="number"
@@ -116,7 +116,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
       </div>
       
       <div>
-        <label>Stock:</label>
+        <StyledLabel>Stock:</StyledLabel>
         <br />
         <StyledInput
           type="number"
@@ -130,7 +130,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
       </div>
       
       <div>
-        <label>Categoría:</label>
+        <StyledLabel>Categoría:</StyledLabel>
         <br />
         <StyledSelect 
           name="category"
@@ -155,7 +155,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
         </StyledSelect>
       </div>
       <div>
-      <label>URL de imagen:</label>
+      <StyledLabel>URL de imagen:</StyledLabel>
         <br />
         <StyledImgInput
           type="text"

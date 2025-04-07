@@ -202,9 +202,10 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
             <Modal isOpen={isModalOpen}>
                 <h2>¿Confirma que desea eliminar este producto?</h2>
                 <h3 style={{textAlign: 'center'}}>{selectedProduct?.name}</h3>
-                <img src={selectedProduct?.image_url} height={100} style={{justifySelf: 'center'}} />
-                <button className="ui button negative" onClick={confirmDelete} style={{justifySelf: 'center', textAlign: 'center'}}>Eliminar</button>
-                <button className="ui button" onClick={() => setIsModalOpen(false)} style={{justifySelf: 'center', textAlign: 'center'}}>Cancelar</button>
+                <div><img src={selectedProduct?.image_url} height={100} /></div>
+                <br />
+                <button className="ui button negative" onClick={confirmDelete} style={{justifySelf: 'center'}}>Eliminar</button>
+                <button className="ui button" onClick={() => setIsModalOpen(false)} style={{justifySelf: 'center'}}>Cancelar</button>
             </Modal>
         </>
     );

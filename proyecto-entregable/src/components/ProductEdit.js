@@ -31,7 +31,7 @@ const ProductEdit = ({ selectedProduct, fetchProduct, editProduct, setMessage })
   return (
     <Card>
       <StyledImageGrid>
-        <img src={selectedProduct.image_url} height={200} max-width={300}/>
+        <img src={selectedProduct.image_url} width={300} style={{objectFit: 'contain'}}/>
       </StyledImageGrid>
       <StyledHeader>
         <h2>Editar Producto</h2>
