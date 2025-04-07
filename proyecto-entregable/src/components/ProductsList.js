@@ -137,8 +137,7 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
                             <th>Descripción</th>
                             <th>Precio</th>
                             <th>Stock disponible</th>
-                            <th>Ver</th>
-                            <th>Editar</th>
+                            <th>Ver/Editar</th>
                             <th>Eliminar</th>
                         </tr>
                     </thead>
@@ -158,11 +157,7 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
                                     <td>
                                         <Link to={`/product/${product.id}`}>
                                             <i className='ui eye icon' />
-                                        </Link>
-                                    </td>
-                                    <td>
-                                        <Link to={`/edit-product/${product.id}`}>
-                                            <i className="ui edit icon" />
+                                            <i className='ui edit icon' />
                                         </Link>
                                     </td>
                                     <td>
