@@ -205,8 +205,10 @@ export const StyledTextarea = styled.textarea`
     margin-bottom: 10px;
 `
 
-export const StyledSpan = styled.span`
+export const StyledErrorDiv = styled.div`
     padding: 3px 2px 3px 5px;
+    color: red;
+    font-size: 16px;
 `
 
 export const StyledSelect = styled.select`

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyledForm, StyledLabel, StyledInput, StyledTextarea, StyledSpan, StyledSelect, StyledImgInput, ButtonsDiv, ConfirmButton, CancelButton } from '../styles';
+import { StyledForm, StyledLabel, StyledInput, StyledTextarea, StyledErrorDiv, StyledSelect, StyledImgInput, ButtonsDiv, ConfirmButton, CancelButton } from '../styles';
 
 
 const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
@@ -83,7 +83,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
             onChange={handleChange}
             readOnly={!isEditable}
           />
-          <div>{errors.name && <StyledSpan>{errors.name}</StyledSpan>}</div>
+          <StyledErrorDiv>{errors.name}</StyledErrorDiv>
         </div>
         
         <div>
@@ -98,7 +98,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
             readOnly={!isEditable}
             rows={5}
           />
-          <div>{errors.description && <StyledSpan>{errors.description}</StyledSpan>}</div>
+          <StyledErrorDiv>{errors.description}</StyledErrorDiv>
         </div>
         
         <div>
@@ -112,7 +112,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
             onChange={handleChange}
             readOnly={!isEditable}
           />
-          <div>{errors.price && <StyledSpan>{errors.price}</StyledSpan>}</div>
+          <StyledErrorDiv>{errors.price}</StyledErrorDiv>
       </div>
       
       <div>
@@ -126,7 +126,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
           onChange={handleChange}
           readOnly={!isEditable}
         />
-        <div>{errors.stock && <StyledSpan>{errors.stock}</StyledSpan>}</div>
+        <StyledErrorDiv>{errors.stock}</StyledErrorDiv>
       </div>
       
       <div>
