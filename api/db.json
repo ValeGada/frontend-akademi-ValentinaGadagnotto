@@ -6,7 +6,7 @@
       "category": "Tablet",
       "price": "1000",
       "stock": 100,
-      "description": "Tecnología Dynamic AMOLED 2X",
+      "description": "Tecnología Dynamic AMOC 2X",
       "image_url": "https://multipoint.com.ar/Image/0/750_750-2_S24_CobaltViolet_Front.png"
     },
     {
@@ -305,6 +305,13 @@
       "stock": 60,
       "description": "Streaming de alta calidad",
       "image_url": "https://arrichetta.com.ar/wp-content/uploads/2024/08/111922_sp845-apple-tv-4k-2gen.png"
+    },
+    {
+      "id": "c1e1",
+      "price": "543",
+      "stock": "543",
+      "description": "fdsaf",
+      "name": "fdsafdsa"
     }
   ]
 }
