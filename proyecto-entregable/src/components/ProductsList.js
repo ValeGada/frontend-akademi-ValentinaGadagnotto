@@ -37,14 +37,14 @@ const ProductsList = ({fetchProducts, products, deleteProduct, currentPage, chan
 
         // Filtrado por categoría
         if (category) {
-            tempProducts = tempProducts.filter(p => p.category.toLowerCase() === category.toLowerCase());
+            tempProducts = tempProducts.filter(p => p.category && p.category.toLowerCase() === category.toLowerCase());
         }
         
         // Búsqueda por nombre
         if (searchTerm) {
             tempProducts = tempProducts.filter(p => 
-                p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                p.category.toLowerCase().includes(searchTerm.toLowerCase())
+                (p.name && p.name.toLowerCase().includes(searchTerm.toLowerCase())) || 
+                (p.category && p.category.toLowerCase().includes(searchTerm.toLowerCase()))
             );
         }
 
