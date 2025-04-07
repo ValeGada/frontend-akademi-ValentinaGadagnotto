@@ -199,6 +199,7 @@ export const StyledImgInput = styled.input`
 export const StyledTextarea = styled.textarea`
     background:rgba(250, 252, 255, 0.65);
     border: none;
+    resize: none;
     font-size: 16px;
     padding: 3px 0 3px 5px;
     width: 350px;
