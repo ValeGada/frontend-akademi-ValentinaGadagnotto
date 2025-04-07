@@ -3,7 +3,6 @@ import NavBar from "./NavBar";
 import ProductsList from "./ProductsList";
 import ProductDetail from './ProductDetail';
 import AddProduct from './AddProduct';
-import ProductEdit from './ProductEdit';
 import Modal from './Modal';
 import { AppContainer } from '../styles';
 import { connect } from 'react-redux';
@@ -17,7 +16,6 @@ const App = ({message}) => {
           <Routes>
             <Route path="/" element={<ProductsList />} />
             <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/edit-product/:id" element={<ProductEdit />} />
             <Route path="/add-product" element={<AddProduct />} />
           </Routes>
       </BrowserRouter>
