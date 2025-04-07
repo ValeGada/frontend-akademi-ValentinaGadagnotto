@@ -7,6 +7,7 @@ import { Card, StyledImageGrid, StyledHeader, FlexGap, EditIcon, BackIcon, Empty
 
 
 const ProductDetail = ({ selectedProduct, fetchProduct, isLoading }) => {
+    const [isEditable, setIsEditable] = useState(false);
     const { id } = useParams();
     
     useEffect(() => {
@@ -19,7 +20,10 @@ const ProductDetail = ({ selectedProduct, fetchProduct, isLoading }) => {
         return <p>Cargando...</p>
     }
 
-    // if (!selectedProduct || selectedProduct.id !== parseInt(id)) return <p>Cargando...</p>;
+    const handleCancel = () => {
+        setIsEditable(false);
+        fetchProduct(id);
+    }
 
     return (
       <Card>
@@ -28,14 +32,15 @@ const ProductDetail = ({ selectedProduct, fetchProduct, isLoading }) => {
         </StyledImageGrid>
         <StyledHeader>
             <FlexGap>
-                <div><h2><Link to='/'><BackIcon className="ui left arrow icon"/></Link></h2></div>
-                <div><h2>Detalle del Producto</h2></div>
-                <div><h2><Link to={`/edit-product/${id}`}><EditIcon className="ui edit icon"/></Link></h2></div>                
+                <div><h2>{!isEditable ? <Link to='/'><BackIcon className="ui left arrow icon"/></Link> : null}</h2></div>
+                <div><h2>{isEditable ? 'Editar Producto' : 'Detalle del Producto'}</h2></div>
+                <div><h2>{!isEditable ? <EditIcon onClick={()=>{setIsEditable(true)}} className="ui edit icon"/> : null}</h2></div>
             </FlexGap>
         </StyledHeader>
         <ProductForm
             product={selectedProduct}
-            isEditable={false}
+            isEditable={isEditable}
+            onCancel={() => handleCancel()}
         />
         <EmptyDiv></EmptyDiv>
       </Card>

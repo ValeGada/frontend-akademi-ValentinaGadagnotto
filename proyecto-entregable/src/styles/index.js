@@ -271,19 +271,19 @@ export const CancelButton = styled.button`
 export const Card = styled.div`
     top: 0;
     height: 100vh;
-    padding-top: 50px;
+    padding-top: 60px;
     display: grid;
     grid-template-columns: 340px 350px;
-    grid-template-rows: 10% 70% 5%;
+    grid-template-rows: 5% 70% 5%;
     justify-content: center;
 `
 
 export const AddProductCard = styled.div`
     top: 0;
     height: 100vh;
-    padding-top: 50px;
+    padding-top: 60px;
     display: grid;
-    grid-template-rows: 10% 70% 5%;
+    grid-template-rows: 5% 70% 5%;
     justify-content: center;
 `
 

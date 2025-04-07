@@ -96,7 +96,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
             value={formData.description || ''}
             onChange={handleChange}
             readOnly={!isEditable}
-            rows={5}
+            rows={3}
           />
           <StyledErrorDiv>{errors.description}</StyledErrorDiv>
         </div>
@@ -170,7 +170,7 @@ const ProductForm = ({ product, onSubmit, isEditable, onCancel }) => {
         {isEditable && (
           <>
             <ConfirmButton type="submit">Confirmar</ConfirmButton>
-            {onCancel && <CancelButton type="button" onClick={onCancel}>Cancelar</CancelButton>}
+            <CancelButton type="button" onClick={onCancel}>Cancelar</CancelButton>
           </>
         )}
       </ButtonsDiv>
